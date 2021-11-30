@@ -43,21 +43,25 @@
                         <td class="border pe-2 py-2">
                             <div class="col float-end">
                                 <button type="button" wire:click="edit({{ $ugyfel->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" title="{{ __('messages.Contacts') }}"><i 
-                                    class="far fa-address-card"></i></button>
+                                    class="btn btn-info btn-sm shadow-sm" 
+                                    title="{{ __('messages.Contacts') }}">
+                                    <i class="far fa-address-card"></i></button>
                                 <!-- button type="button" wire:click="getszemelyek({{ $ugyfel }})" 
                                     class="btn btn-info btn-sm shadow-sm" title="{{ __('messages.Persons') }}"><i 
                                     class="fas fa-users"></i></button -->
                                 <a href="{{ route('ugyfelek.getszemelyek', $ugyfel) }}"
-                                    class="btn btn-info btn-sm shadow-sm" title="{{ __('messages.Persons') }}"><i 
-                                    class="fas fa-users"></i></a>
+                                    class="btn btn-info btn-sm shadow-sm" 
+                                    title="{{ __('messages.Persons') }}">
+                                    <i class="fas fa-users"></i></a>
                                 <button type="button" wire:click="edit({{ $ugyfel->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" title="{{ __('messages.Edit') }}"><i 
-                                    class="far fa-eye"></i></button>
+                                    class="btn btn-info btn-sm shadow-sm" 
+                                    title="{{ __('messages.Edit') }}">
+                                    <i class="far fa-eye"></i></button>
                                 <!--button wire:click.prevent="delete({{$ugyfel->id}})" 
                                     class="btn btn-danger" title="{{ __('messages.Delete') }}"><i 
                                     class="fa fa-trash" aria-hidden="true"></i></button -->
-                                <form method="POST" action="{{ route('ugyfelek.destroy', $ugyfel) }}" 
+                                <form method="POST" 
+                                    action="{{ route('ugyfelek.destroy', $ugyfel) }}" 
                                     class="form d-inline-block" title="Delete">
                                     @method('delete')
                                     @csrf

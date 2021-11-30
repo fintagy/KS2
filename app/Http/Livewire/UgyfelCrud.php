@@ -36,7 +36,7 @@ class UgyfelCrud extends Component
         //$this->ucsoportok = ucsoport::all();        
         return view('livewire.ugyfel.ugyfel-crud', [
             //'ugyfelek0' => ugyfel::where('id', '>', 0)->paginate(7),
-            'ugyfelek0' => ugyfel::paginate(10),            
+            'ugyfelek0' => ugyfel::paginate(6),            
             'ucsoportok0' => ucsoport::all(),
             'msafak' => msafa::all(),
             'evafak' => evafa::all(),

@@ -15,7 +15,8 @@ use App\Http\Livewire\SzemelyCrud;
 */
 
 
-Route::get('/szemelyek', SzemelyCrud::class, 'render') -> name('szemelyek.render');
+Route::get('/szemelyek', [SzemelyCrud::class, 'render']) -> name('szemelyek.render');
+Route::get('/szemelyek/create', [SzemelyCrud::class, 'create']) -> name('szemelyek.create');
 Route::get('/szemelyek/{ugyfel}', [SzemelyCrud::class, 'getszemelyek']) -> name('szemelyek.getszemelyek');
 
 Route::delete('/szemelyek/{szemely}', [SzemelyCrud::class, 'destroy']) -> name('szemelyek.destroy');

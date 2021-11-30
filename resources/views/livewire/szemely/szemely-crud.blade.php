@@ -3,7 +3,7 @@
 @section('content')
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">$isModalOpen
             @if (session()->has('message'))
             <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 pb-2 shadow-lg my-2" role="alert">
                 <div class="flex">
@@ -15,7 +15,7 @@
                 class="btn btn-primary float-end btn-sm shadow-sm" 
                 title="{{ __('messages.New') }}">
                 <i class="fas fa-plus"></i>
-            </button>                                  
+            </button>
             @if(isset($isModalOpen) && ($isModalOpen))
                 @include('livewire.szemely.szemely_create')
             @endif
@@ -43,12 +43,16 @@
                                     title="{{ __('messages.Contacts') }}">
                                     <i class="far fa-address-card"></i>
                                 </button>   
+
                                 <button type="button" wire:click="edit({{ $szemely->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">
                                     <i class="far fa-eye"></i>
                                 </button>                                
-                                <form method="POST" action="{{ route('szemelyek.destroy', $szemely) }}" class="form d-inline-block" title="Delete">
+                                <form method="POST" 
+                                    action="{{ route('szemelyek.destroy', $szemely) }}"
+                                    class="form d-inline-block" 
+                                    title="Delete">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" 

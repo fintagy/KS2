@@ -19,7 +19,7 @@ class SzemelyCrud extends Component
     public function render()
     {              
         return view('livewire.szemely.szemely-crud', [            
-            'szemelyek0' => szemely::paginate(10),
+            'szemelyek0' => szemely::paginate(6),
         ]);
     }
 
