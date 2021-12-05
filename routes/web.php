@@ -27,3 +27,5 @@ Route::middleware(['auth'])->group(function () {
     require __DIR__.'/ugyfel.php';
     require __DIR__.'/szemely.php';
 });
+
+Route::view('contacts', 'ugyfel.ugyfel-crud');

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Carbon\Carbon;
+
 use Illuminate\Validation\Rule;
 use App\Models\ugyfel;
 use App\Models\ucsoport;
@@ -23,7 +24,8 @@ class UgyfelCrud extends Component
     public $maganszemely_id, $m_ugyfel_id, $m_msafa_id, $ms_adoazonosito, $ms_tajszam, $ms_szulhely, $ms_szulido, $ms_aneve, $ms_szigszam, $ms_letrehozas, $ms_mod;
     public $egyenivallalkozo_id, $e_ugyfel_id, $evafa_id, $ev_okmnyszam, $ev_statszam, $ev_nev, $ev_letrehozas, $ev_mod;    
     public $tarsasag_id, $t_ugyfel_id, $tafa_id, $tars_cegnev, $tars_cegjszam, $tars_letrehozas, $tars_mod;    
-    public $temp_ugyfel;    
+    public $temp_ugyfel;   
+     
     public $isModalOpen = 0;
     
     use WithPagination;
@@ -41,8 +43,7 @@ class UgyfelCrud extends Component
             'msafak' => msafa::all(),
             'evafak' => evafa::all(),
             'tafak' => tafa::all()
-        ]);
-
+        ]);        
     }
 
     public function create()
@@ -240,15 +241,4 @@ class UgyfelCrud extends Component
         return redirect()->route('ugyfelek.render')->with('success','Az ügyfél törölve.');
     }
 
-    public function getszemelyek(ugyfel $ugyfel)
-    {
-        /*return view('livewire.szemely.szemely-crud', [            
-            'szemelyek0' => szemely::paginate(10),
-        ]);*/
-        //$szemelyek0 = $ugyfel->szemelyek;
-        //return view('livewire.szemely.szemely-crud',compact('szemelyek0'));
-        return view('livewire.szemely.szemely-crud', [
-            'szemelyek0' => szemely::where('ugyfel_id', $ugyfel->id)->paginate(7),
-        ]);
-    }
 }

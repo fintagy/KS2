@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\UgyfelCrud;
+use App\Http\Livewire\SzemelyCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use App\Http\Livewire\UgyfelCrud;
 |
 */
 
-Route::get('/ugyfelek', [UgyfelCrud::class, 'render']) -> name('ugyfelek.render');
+Route::get('/ugyfelek', UgyfelCrud::class) -> name('ugyfelek');
+Route::get('/ugyfelek/{ugyfel}/edit', [UgyfelCrud::class, 'edit']) -> name('ugyfelek.edit');
 Route::delete('/ugyfelek/{ugyfel}', [UgyfelCrud::class, 'destroy']) -> name('ugyfelek.destroy');
 
-Route::get('/ugyfelek/{ugyfel}/szemelyek', [UgyfelCrud::class, 'getszemelyek']) -> name('ugyfelek.getszemelyek');
+//Route::get('/szemelyek', SzemelyCrud::class) -> name('getszemelyek');

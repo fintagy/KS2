@@ -5,22 +5,41 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Carbon\Carbon;
+
 use App\Models\szemely;
 use App\Models\ugyfel;
 
 class SzemelyCrud extends Component
 {
     public $szemely, $sz_ugyfel_id, $szem_beosztas, $szem_vezeteknev, $szem_keresztnev, $szem_aktiv, $szem_letrehozas, $szem_mod;
-
+    public $ugyfelid;
     public $deleteId = '';
+
     public $isModalOpen = 0;
     
     use WithPagination;
+
+    /*public function __constructor(int $id){
+        return view('livewire.szemely.szemely-crud', [
+            'szemelyek0' => szemely::where('ugyfel_id',  $id)->paginate(7),
+        ]);
+    }*/
+
+    public function mount(ugyfel $ugyfel){
+        $this->ugyfelid = $ugyfel->id;
+    }
+
     public function render()
     {              
-        return view('livewire.szemely.szemely-crud', [            
-            'szemelyek0' => szemely::paginate(6),
-        ]);
+        if(isset($this->ugyfelid)){            
+            return view('livewire.szemely.szemely-crud', [
+                'szemelyek0' => szemely::where('ugyfel_id',  $this->ugyfelid)->paginate(7),
+            ]);
+        }else{
+            return view('livewire.szemely.szemely-crud', [            
+                'szemelyek0' => szemely::paginate(6),
+            ]);
+        }        
     }
 
     public function create()
@@ -91,7 +110,7 @@ class SzemelyCrud extends Component
     public function destroy(szemely $szemely)
     {
         $szemely->delete();
-        return redirect()->route('szemelyek')->with('success','Az ügyfél törölve.');
+        return redirect()->route('szemelyek')->with('success','A szeméyl törölve.');
     }
 
     public function getkapcsolatok(szemely $szemely)

@@ -41,7 +41,7 @@
                 </div>                               
                 <div class="col mb-4 float-end">
                     <button wire:click="closeModalPopover()" type="button" class="btn btn-secondary shadow-sm" title="{{ __('messages.Back') }}"><i class="fas fa-arrow-left"></i></button>
-                    <button wire:click.prevent="store()" type="button" class="btn btn-success shadow-sm" title="{{ __('messages.Save') }}"><i class="far fa-save"></i></button>
+                    <button wire:click.prevent="store()" type="button" class="btn btn-success shadow-sm" title="{{ __('messages.Save') }}"><i class="fas fa-save"></i></button>
                 </div>
             </form>
         </div>
