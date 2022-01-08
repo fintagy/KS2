@@ -82,13 +82,13 @@ class SzemelyCrud extends Component
             'szem_vezeteknev' => $this->szem_vezeteknev,
             'szem_keresztnev' => $this->szem_keresztnev,
             'szem_aktiv' => $this->szem_aktiv,            
-            'szem_letrehozas' => $this->ugyf_letrehozas,
-            'szem_mod' => $this->ugyf_mod            
+            'szem_letrehozas' => $this->szem_letrehozas,
+            'szem_mod' => $this->szem_mod            
         ]);        
         
         session()->flash('message', $this->szemely_id ? $this->szem_vezeteknev." ".$this->szem_keresztnev.' adatai frissítve.' : 'Új személy rögztve.');
         
-        $this->closeModalPopover;
+        $this->closeModalPopover();
         $this->resetCreateForm();
     }
 
@@ -110,7 +110,7 @@ class SzemelyCrud extends Component
     public function destroy(szemely $szemely)
     {
         $szemely->delete();
-        return redirect()->route('szemelyek')->with('success','A szeméyl törölve.');
+        return redirect()->route('szemelyek')->with('success','A személy törölve.');
     }
 
     public function getkapcsolatok(szemely $szemely)

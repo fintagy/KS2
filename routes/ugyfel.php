@@ -19,4 +19,6 @@ Route::get('/ugyfelek', UgyfelCrud::class) -> name('ugyfelek');
 Route::get('/ugyfelek/{ugyfel}/edit', [UgyfelCrud::class, 'edit']) -> name('ugyfelek.edit');
 Route::delete('/ugyfelek/{ugyfel}', [UgyfelCrud::class, 'destroy']) -> name('ugyfelek.destroy');
 
-//Route::get('/szemelyek', SzemelyCrud::class) -> name('getszemelyek');
+
+Route::get('/szemelyek/{ugyfel}', SzemelyCrud::class) -> name('gettszemelyek');
+//Route::get('/project/{project}/tasks', Taskcrud::class) -> name('gettaskok');
