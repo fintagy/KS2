@@ -65,4 +65,44 @@ a profilbeálltásban kiválasztani a fotót
 a storage/public mappából kimásolni a profile-prhotos mappát az előző helyre
 a .env fájlban APP_URL=http://192.168.0.37:8000 -t beálltani
 
+Honosítás:
+
+a  {{ __('messages.Events') }} tagokban a __(' előtagot cserélni  __('messages. - re
+a resources/lang mappában létrehozni a hu mappát, benne messages.php fájlt
+
+
+Kettős hitelesTés kikapcsolása:
+
+a config/fortify.php fájlban kiremelni: //Features::twoFactorAuthentication([
+        								//    'confirmPassword' => true,
+        								//]),
+
+Fiók törlése szolgáltatás kikapcsolása:
+
+a config/jetstream.php ban kiremelni a  Features::accountDeletion(),  sort
+
+
+Imél beállítás - jelszó visszaállítás
+
+.env 
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=gyula.finta@gmail.com
+MAIL_PASSWORD=P__..mysql11
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=gyula.finta@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+a config\mail.php-hez hozzáfűzni:
+
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
+
+az 'auth_mode' => null, végéhez
 

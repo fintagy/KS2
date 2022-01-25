@@ -14,9 +14,12 @@ return [
     */
 
     'Email' => 'Ímél',
+    'Email Password Reset Link' => 'E-mail jelszó-visszaállítási hivatkozás ',
     'Password' => 'Jelszó',
     'Remember me' => 'Emlékezzen rám',
     'Forgot your password?' => 'Elfelejtette a jelszavát?',
+    'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.' => 
+    'Elfelejtette a jelszavát? Nincs probléma. Csak adja meg e-mail címét, és e-mailben küldünk egy jelszó-visszaállítási linket, amely lehetővé teszi, hogy újat válasszon. ',
     'Login' => 'Bejelentkezés',
     'Log in' => 'Bejelentkezés',
     'Name' => 'Név',    
@@ -80,5 +83,6 @@ return [
     'This device' =>'Ez az eszköz',
     'Last active' => 'Utoljára aktív ',
     'Customers' => 'Ügyfelek',
-    'Alarms'=>'Riasztások'
+    'Alarms'=>'Riasztások',
+    'Reset Password' => 'Jelszó beálltása',
 ];

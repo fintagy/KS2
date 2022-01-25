@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\EsemenyCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth'])->group(function () {   
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::middleware(['auth'])->group(function () {  
+    
+    //Route::get('/', function () {
+    //    return view('welcome');
+    //});
     require __DIR__.'/esemeny.php';
     require __DIR__.'/ugyfel.php';
     require __DIR__.'/szemely.php';
+
+    Route::get('/', EsemenyCrud::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
