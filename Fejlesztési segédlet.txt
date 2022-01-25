@@ -58,4 +58,11 @@ Seed:
 a feltöltendő tábláknak táblaSeeder.php fájlt készteni, majd a DatabaseSeeder.php fájlban meghívni ezeket a feltöltő osztályokat a
 php artisan db:seed paranccsal. Figyelni kell a táblaadatok közötti idegen kulcsok miatt a megívási sorrendre!
 
+Profil fotó:
+
+létrehozni a public mappán belül a storage mappát.
+a profilbeálltásban kiválasztani a fotót
+a storage/public mappából kimásolni a profile-prhotos mappát az előző helyre
+a .env fájlban APP_URL=http://192.168.0.37:8000 -t beálltani
+
 

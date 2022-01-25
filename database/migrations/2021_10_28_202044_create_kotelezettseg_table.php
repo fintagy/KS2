@@ -16,7 +16,7 @@ class CreateKotelezettsegTable extends Migration
         Schema::create('kotelezettseg', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kottip_id');
-            $table->string('kot_leiras', 255)->nullable();
+            $table->string('kot_leiras', 512)->nullable();
             $table->string('kot_szam', 30)->nullable();
             $table->string('kot_kie', 30)->nullable();
             $table->dateTime('kot_letrehozas');

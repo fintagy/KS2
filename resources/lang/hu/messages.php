@@ -23,7 +23,7 @@ return [
     'Already registered?' => 'Már regisztrált?',
     'Register' => 'Regisztráció',
     'Dashboard' => 'Irányítópult',
-    'Events' => 'Eseméyek',
+    'Events' => 'Események',
     'Manage Account' => 'Fiók kezelése',
     'Profile' => 'Profil',
     'API Tokens' => 'API tokenek',

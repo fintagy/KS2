@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
             egyenivallalkozoSeeder::class,
             tarsasagSeeder::class,
             userSeeder::class,
-            szemelySeeder::class
+            szemelySeeder::class,
+            kottipSeeder::class,
+            kotelezettsegSeeder::class,
+            hatarnap2021Seeder::class,
+            hatarnap20221Seeder::class
         ]);
     }
 }
