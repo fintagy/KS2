@@ -49,6 +49,7 @@ return [
     'Send' => 'Küldés',
     'Showing' => 'Megjelenítés',
     'to' => '-től',
+    'Card events' => 'Kártyás események',
     'Completed' => 'Teljesítve',
     'Customer created.' => 'Ügyfél létrehozva.',
     'Customer updated.' => 'Ügyfél adatai frissítve.',

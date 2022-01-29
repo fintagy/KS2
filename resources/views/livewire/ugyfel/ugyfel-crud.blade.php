@@ -24,7 +24,7 @@
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-2 py-2 w-4">Id</th>
+                        <th class="px-2 py-2 w-8">Id</th>
                         <th class="px-2 py-2 w-20">Azonosító</th>
                         <th class="px-2 py-2">Leírás</th>
                         <th class="px-2 py-2 w-32">Adószám</th>

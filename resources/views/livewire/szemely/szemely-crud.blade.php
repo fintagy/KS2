@@ -24,7 +24,7 @@
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-2 py-2 w-4">Id</th>
+                        <th class="px-2 py-2 w-8">Id</th>
                         <th class="ps-2 py-2 w-32">Vezetéknév</th>
                         <th class="ps-2 py-2 w-32">Kersztnév</th>
                         <th class="ps-2 py-2">Beosztás</th>                        

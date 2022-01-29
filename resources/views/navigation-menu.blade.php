@@ -17,6 +17,11 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('esemenyek.cards') }}" :active="request()->routeIs('esemenyek.cards')">
+                        {{ __('messages.Card events') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('ugyfelek') }}" :active="request()->routeIs('ugyfelek')">
                         {{ __('messages.Customers') }}
                     </x-jet-nav-link>

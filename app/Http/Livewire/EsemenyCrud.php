@@ -8,6 +8,10 @@ class EsemenyCrud extends Component
 {
     public function render()
     {
-        return view('livewire.esemeny.esemeny-crud');
+        return view('livewire.esemeny.esemeny_crud');
+    }
+    public function cards()
+    {
+        return view('livewire.esemeny.esemeny_card');
     }
 }
