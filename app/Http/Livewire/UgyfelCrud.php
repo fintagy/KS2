@@ -28,16 +28,11 @@ class UgyfelCrud extends Component
      
     public $isModalOpen = 0;
     
-    use WithPagination;
- 
-    //protected $paginationTheme = 'bootstrap';
+    use WithPagination; 
 
     public function render()
-    {
-        //$this->ugyfelek = ugyfel::all();
-        //$this->ucsoportok = ucsoport::all();        
-        return view('livewire.ugyfel.ugyfel-crud', [
-            //'ugyfelek0' => ugyfel::where('id', '>', 0)->paginate(7),
+    {     
+        return view('livewire.ugyfel.ugyfel_crud', [            
             'ugyfelek0' => ugyfel::paginate(6),            
             'ucsoportok0' => ucsoport::all(),
             'msafak' => msafa::all(),
@@ -190,8 +185,7 @@ class UgyfelCrud extends Component
 
         switch ($this->u_ucsoport_id) {
             case 1:
-                $maganszemely = maganszemely::where('ugyfel_id', '=', $id)->firstOrFail();
-                //$maganszemely = maganszemely::findOrFail($id);
+                $maganszemely = maganszemely::where('ugyfel_id', '=', $id)->firstOrFail();                
                 $this->maganszemely_id =$maganszemely->id;
                 $this->m_ugyfel_id = $maganszemely->ugyfel_id;
                 $this->m_msafa_id = $maganszemely->msafa_id;
@@ -240,5 +234,4 @@ class UgyfelCrud extends Component
         $ugyfel->delete();
         return redirect()->route('ugyfelek.render')->with('success','Az ügyfél törölve.');
     }
-
 }

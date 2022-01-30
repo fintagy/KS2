@@ -20,8 +20,10 @@ Route::middleware(['auth'])->group(function () {
     //    return view('welcome');
     //});
     require __DIR__.'/esemeny.php';
+    require __DIR__.'/esemenycard.php';
     require __DIR__.'/ugyfel.php';
     require __DIR__.'/szemely.php';
+    require __DIR__.'/kotelezettseg.php';
 
     Route::get('/', EsemenyCrud::class);
 });

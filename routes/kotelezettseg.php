@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\UgyfelCrud;
-use App\Http\Livewire\SzemelyCrud;
+use App\Http\Livewire\KotelezettsegCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +14,5 @@ use App\Http\Livewire\SzemelyCrud;
 |
 */
 
-Route::get('/ugyfelek', UgyfelCrud::class) -> name('ugyfelek');
-Route::get('/ugyfelek/{ugyfel}/edit', [UgyfelCrud::class, 'edit']) -> name('ugyfelek.edit');
-Route::delete('/ugyfelek/{ugyfel}', [UgyfelCrud::class, 'destroy']) -> name('ugyfelek.destroy');
-
-
-Route::get('/szemelyek/{ugyfel}', SzemelyCrud::class) -> name('gettszemelyek');
+Route::get('/kotelezettsegek', KotelezettsegCrud::class) -> name('kotelezettseg');
+Route::get('/kotelezettsegek/{esemeny}', KotelezettsegCrud::class, 'destroy') -> name('kotelezettseg.destroy');

@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('esemenyek.cards') }}" :active="request()->routeIs('esemenyek.cards')">
+                    <x-jet-nav-link href="{{ route('esemenycard') }}" :active="request()->routeIs('esemenycard')">
                         {{ __('messages.Card events') }}
                     </x-jet-nav-link>
                 </div>
@@ -29,6 +29,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('szemelyek') }}" :active="request()->routeIs('szemelyek')">
                         {{ __('messages.Persons') }}
+                    </x-jet-nav-link>
+                </div>   
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('kotelezettseg') }}" :active="request()->routeIs('kotelezettseg')">
+                        {{ __('messages.Obligations') }}
                     </x-jet-nav-link>
                 </div>        
             </div>

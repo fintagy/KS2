@@ -50,6 +50,7 @@ return [
     'Showing' => 'Megjelenítés',
     'to' => '-től',
     'Card events' => 'Kártyás események',
+    'Obligations' => 'Kötelezettségek',
     'Completed' => 'Teljesítve',
     'Customer created.' => 'Ügyfél létrehozva.',
     'Customer updated.' => 'Ügyfél adatai frissítve.',

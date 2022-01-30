@@ -19,12 +19,6 @@ class SzemelyCrud extends Component
     
     use WithPagination;
 
-    /*public function __constructor(int $id){
-        return view('livewire.szemely.szemely-crud', [
-            'szemelyek0' => szemely::where('ugyfel_id',  $id)->paginate(7),
-        ]);
-    }*/
-
     public function mount(ugyfel $ugyfel){
         $this->ugyfelid = $ugyfel->id;
     }
@@ -32,11 +26,11 @@ class SzemelyCrud extends Component
     public function render()
     {              
         if(isset($this->ugyfelid)){            
-            return view('livewire.szemely.szemely-crud', [
+            return view('livewire.szemely.szemely_crud', [
                 'szemelyek0' => szemely::where('ugyfel_id',  $this->ugyfelid)->paginate(7),
             ]);
         }else{
-            return view('livewire.szemely.szemely-crud', [            
+            return view('livewire.szemely.szemely_crud', [            
                 'szemelyek0' => szemely::paginate(6),
             ]);
         }        
@@ -112,7 +106,8 @@ class SzemelyCrud extends Component
         $szemely->delete();
         return redirect()->route('szemelyek')->with('success','A személy törölve.');
     }
-
+    
+        //???
     public function getkapcsolatok(szemely $szemely)
     {        
         $szemelykapcsolatai = $szemely->kapcsolatok;
@@ -120,12 +115,7 @@ class SzemelyCrud extends Component
     }
 
     public function getszemelyek(ugyfel $ugyfel)
-    {
-        /*return view('livewire.szemely.szemely-crud', [            
-            'szemelyek0' => szemely::paginate(10),
-        ]);*/
-        //$szemelyek0 = $ugyfel->szemelyek;
-        //return view('livewire.szemely.szemely-crud',compact('szemelyek0'));
+    {        
         return view('livewire.szemely.szemely-crud', [
             'szemelyek0' => szemely::where('ugyfel_id', $ugyfel->id)->paginate(7),
         ]);

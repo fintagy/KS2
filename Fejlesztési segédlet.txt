@@ -32,13 +32,13 @@ Login
 
 php artisan make:livewire UgyfelCrud
 	//CLASS: app/Http/Livewire/UgyfelCrud.php
-	//VIEW:  resources/views/livewire/ugyfel-crud.blade.php
+	//VIEW:  resources/views/livewire/ugyfel_crud.blade.php
 	
 UgyfelCrud.php-ban	
 public $ugyfelek, $leiras, ....
 és a többi metódus létrehozása
 
-ugyfel-crud.blade.php-ban formot létrehozni, label és button-okat formázni
+ugyfel_crud.blade.php-ban formot létrehozni, label és button-okat formázni
 app.blade.php:
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

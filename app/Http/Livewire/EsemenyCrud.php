@@ -3,15 +3,19 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\esemeny;
 
 class EsemenyCrud extends Component
 {
     public function render()
     {
-        return view('livewire.esemeny.esemeny_crud');
+        return view('livewire.esemeny.esemeny_crud', [            
+            'esemenyek0' => esemeny::paginate(6)
+        ]);
     }
-    public function cards()
+    public function destroy(esemeny $esemeny)
     {
-        return view('livewire.esemeny.esemeny_card');
+        $esemeny->delete();
+        return redirect()->route('esemenyek')->with('success','Az ügyfél törölve.');
     }
 }
