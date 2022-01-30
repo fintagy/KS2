@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
     require __DIR__.'/ugyfel.php';
     require __DIR__.'/szemely.php';
     require __DIR__.'/kotelezettseg.php';
+    require __DIR__.'/hatarnap.php';
 
     Route::get('/', EsemenyCrud::class);
 });

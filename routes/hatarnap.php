@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\KotelezettsegCrud;
+use App\Http\Livewire\HatarnapCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,5 @@ use App\Http\Livewire\KotelezettsegCrud;
 |
 */
 
-Route::get('/kotelezettsegek', KotelezettsegCrud::class) -> name('kotelezettsegek');
-Route::get('/kotelezettsegek/{esemeny}', KotelezettsegCrud::class, 'destroy') -> name('kotelezettsegek.destroy');
+Route::get('/hatarnapok', HatarnapCrud::class) -> name('hatarnapok');
+Route::get('/hatarnapok/{hatarnap}', HatarnapCrud::class, 'destroy') -> name('hatarnapok.destroy');

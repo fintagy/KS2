@@ -8,16 +8,14 @@
             <form class="bg-white sm:p-6 sm:pb-4">
                 <div class="row">                   
                     <div class="col mb-4">
-                        <label for="kot_leiras_textarea" class="block text-gray-700 text-sm font-bold mb-2">Leírás</label>
-                        <textarea type="text"
+                        <label for="hatarnap_input" class="block text-gray-700 text-sm font-bold mb-2">Határnap</label>
+                        <script> const maxdate = Date.now(); </script>
+                        <input type="datetime-local"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="kot_leiras_textarea" wire:model="kot_leiras"
-                            placeholder="...leírás"></textarea>
+                            id="hatarnap_input" value="{{$this->hatn_nap}}" wire:model="hatn_nap" max="<?= date('Y-m-d'); ?>">
+                        @error('hatarnap') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
-                    
-                </div>
-                <div class="row">
-                <div class="col mb-4">
+                    <div class="col mb-4">
                         <label for="kot_szam_input" class="block text-gray-700 text-sm font-bold mb-2">Azonosító</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -25,20 +23,14 @@
                             placeholder="...név">
                         @error('kot_szam') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
-                    <div class="col mb-4">
-                        <label for="szem_beosztas_input" class="block text-gray-700 text-sm font-bold mb-2">Beosztás</label>
-                        <input type="text"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="szem_beosztas_input" wire:model="szem_beosztas"
-                            placeholder="...beosztás">
-                        @error('szem_beosztas') <span class="text-red-500">{{ $message }}</span>@enderror
-                    </div>     
-                    <div class="col mb-4">
-                        <label for="kot_aktiv_input" class="block text-gray-700 text-sm font-bold mb-2">Aktív</label>
-                        <input type="checkbox" id="kot_aktiv_input" value="{{$this->kot_aktiv}}" wire:model="kot_aktiv" >
-                        @error('kot_aktiv') <span class="text-red-500">{{ $message }}</span>@enderror
+                </div>
+                <div class="row">
+                    <div class="mb-4 float-end">
+                        <label for="hatarnap_input" class="block text-gray-700 text-sm font-bold mb-2">Aktív</label>
+                        <input type="checkbox" id="hatarnap_input" value="{{$this->hatn_aktiv}}" wire:model="hatn_aktiv" >
+                        @error('hatarnap_aktiv') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div> 
-                </div>                               
+                </div>
                 <div class="pb-4">
                     <button wire:click="closeModalPopover()" type="button" class="btn btn-secondary btn-sm shadow-sm" title="{{ __('messages.Back') }}"><i class="fas fa-arrow-left"></i></button>
                     <button wire:click.prevent="store()" type="button" class="btn btn-success btn-sm shadow-sm" title="{{ __('messages.Save') }}"><i class="fas fa-save"></i></button>

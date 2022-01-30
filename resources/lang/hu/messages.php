@@ -37,6 +37,7 @@ return [
     'View' => 'Nézet',
     'Accounts' => 'Hozzáférések',
     'Delete' => 'Törlés',
+    'Deadlines' => 'Határnapok',
     'Back' => 'Vissza',
     'Forward' => 'Előre',
     'Persons' => 'Személyek',

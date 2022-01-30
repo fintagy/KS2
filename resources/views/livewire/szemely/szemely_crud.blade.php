@@ -25,26 +25,21 @@
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="px-2 py-2 w-8">Id</th>
-                        <th class="ps-2 py-2 w-32">Vezetéknév</th>
-                        <th class="ps-2 py-2 w-32">Kersztnév</th>
-                        <th class="ps-2 py-2">Beosztás</th>                        
+                        <th class="px-2 py-2 w-32">Vezetéknév</th>
+                        <th class="px-2 py-2 w-32">Kersztnév</th>
+                        <th class="px-2 py-2">Beosztás</th>                        
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($szemelyek0 as $szemely)
                     <tr>
-                        <td class="border ps-2 py-2">{{ $szemely->id }}</td>
-                        <td class="border ps-2 py-2">{{ $szemely->szem_vezeteknev }}</td>
-                        <td class="border ps-2 py-2">{{ $szemely->szem_keresztnev }}</td>
-                        <td class="border ps-2 py-2">{{ $szemely->szem_beosztas}}</td>                        
-                        <td class="border pe-2 py-2">
-                            <div class="col float-end">                             
-                                <button type="button" wire:click="edit({{ $szemely->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" 
-                                    title="{{ __('messages.Contacts') }}">
-                                    <i class="fas fa-address-card"></i>
-                                </button>
+                        <td class="border px-2 py-2">{{ $szemely->id }}</td>
+                        <td class="border px-2 py-2">{{ $szemely->szem_vezeteknev }}</td>
+                        <td class="border px-2 py-2">{{ $szemely->szem_keresztnev }}</td>
+                        <td class="border px-2 py-2">{{ $szemely->szem_beosztas}}</td>                        
+                        <td class="border px-2 py-2">
+                            <div class="col float-end">
                                 <button type="button" wire:click="edit({{ $szemely->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">

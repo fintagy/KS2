@@ -16,8 +16,9 @@ class kotelezettseg extends Model
         'kot_leiras', 
         'kot_szam', 
         'kot_kie',
+        'kot_aktiv',
         'kot_letrehozas',
-        'kot_mod'
+        'kot_mod'        
     ];  
 
     public function kothatok() {

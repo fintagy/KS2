@@ -25,35 +25,41 @@
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="px-2 py-2 w-8">Id</th>
-                        <th class="px-2 py-2 w-8">ugyfel_id</th>
-                        <th class="px-2 py-2 w-8">kothat_id</th>
-                        <th class="px-2 py-2 w-48">Létrehozás</th>                        
-                        <th class="px-2 py-2 w-48">Módostás</th>
+                        <th class="px-2 py-2 w-8">Határnap</th>    
+                        <th class="px-2 py-2 w-20">Aktív</th>                    
+                        <!-- th class="px-2 py-2 w-48">Létrehozás</th>                        
+                        <th class="px-2 py-2 w-48">Módostás</th -->
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($esemenyek0 as $esemeny)
+                    @foreach($hatarnapok0 as $hatarnap)
                     <tr>
-                        <td class="border px-2 py-2">{{ $esemeny->id }}</td>
-                        <td class="border px-2 py-2">{{ $esemeny->ugyfel_id }}</td>
-                        <td class="border px-2 py-2">{{ $esemeny->kothat_id }}</td>
-                        <td class="border px-2 py-2">{{ $esemeny->esem_letrehozas }}</td>
-                        <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>                        
+                        <td class="border px-2 py-2">{{ $hatarnap->id }}</td>
+                        <td class="border px-2 py-2">{{ $hatarnap->hatn_nap }}</td>
+                        <td class="border px-2 py-2 d-none d-md-table-cell">
+                            @if ($hatarnap->hatn_aktiv == 1 )
+                                Aktív
+                            @else
+                                Törölt
+                            @endif
+                        </td> 
+                        <!-- td class="border px-2 py-2">{{ $hatarnap->esem_letrehozas }}</td>
+                        <td class="border px-2 py-2">{{ $hatarnap->esem_mod}}</td -->                        
                         <td class="border px-2 py-2">
                             <div class="col float-end">                             
-                                <button type="button" wire:click="edit({{ $esemeny->id }})" 
+                                <button type="button" wire:click="edit({{ $hatarnap->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Contacts') }}">
                                     <i class="fas fa-address-card"></i>
                                 </button>
-                                <button type="button" wire:click="edit({{ $esemeny->id }})" 
+                                <button type="button" wire:click="edit({{ $hatarnap->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">
                                     <i class="fas fa-eye"></i>
                                 </button>                                
                                 <form method="POST" 
-                                    action="{{ route('esemenyek.destroy', $esemeny) }}"
+                                    action="{{ route('hatarnap.destroy', $hatarnap) }}"
                                     class="form d-inline-block" 
                                     title="Delete">
                                     @method('delete')
@@ -71,9 +77,9 @@
                     @endforeach
                 </tbody>                
             </table>
-            <div style="z-index: -1;">{{ $esemenyek0->links()}}</div>
+            <div style="z-index: -1;">{{ $hatarnapok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.esemeny.esemeny_create')
+                @include('livewire.hatarnap.hatarnap_create')
             @endif
         </div>        
     </div>

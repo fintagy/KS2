@@ -19,6 +19,7 @@ class CreateKotelezettsegTable extends Migration
             $table->string('kot_leiras', 512)->nullable();
             $table->string('kot_szam', 30)->nullable();
             $table->string('kot_kie', 30)->nullable();
+            $table->boolean('kot_aktiv');
             $table->dateTime('kot_letrehozas');
             $table->dateTime('kot_mod');
             

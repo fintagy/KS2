@@ -12,9 +12,10 @@ class hatarnap extends Model
     public $timestamps = false; 
     
     protected $fillable = [
-        'hat_nap',
-        'hat_letrehozas',
-        'hat_mod'
+        'hatn_nap',
+        'hatn_aktiv',
+        'hatn_letrehozas',
+        'hatn_mod'
     ];  
 
     public function kothatok() {

@@ -15,9 +15,10 @@ class CreateHatarnapTable extends Migration
     {
         Schema::create('hatarnap', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('hat_nap');
-            $table->dateTime('hat_letrehozas');
-            $table->dateTime('hat_mod');
+            $table->dateTime('hatn_nap');
+            $table->boolean('hatn_aktiv');
+            $table->dateTime('hatn_letrehozas');
+            $table->dateTime('hatn_mod');
         });
     }
 

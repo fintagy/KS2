@@ -39,9 +39,9 @@
                         @error('szem_aktiv') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div> 
                 </div>                               
-                <div class="col mb-4 float-end">
-                    <button wire:click="closeModalPopover()" type="button" class="btn btn-secondary shadow-sm" title="{{ __('messages.Back') }}"><i class="fas fa-arrow-left"></i></button>
-                    <button wire:click.prevent="store()" type="button" class="btn btn-success shadow-sm" title="{{ __('messages.Save') }}"><i class="fas fa-save"></i></button>
+                <div class="pb-4">
+                    <button wire:click="closeModalPopover()" type="button" class="btn btn-secondary btn-sm shadow-sm" title="{{ __('messages.Back') }}"><i class="fas fa-arrow-left"></i></button>
+                    <button wire:click.prevent="store()" type="button" class="btn btn-success btn-sm shadow-sm" title="{{ __('messages.Save') }}"><i class="fas fa-save"></i></button>
                 </div>
             </form>
         </div>
