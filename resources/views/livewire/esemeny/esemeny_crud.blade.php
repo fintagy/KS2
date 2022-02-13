@@ -25,10 +25,10 @@
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="px-2 py-2 w-8">Id</th>
-                        <th class="px-2 py-2 w-8">ugyfel_id</th>
-                        <th class="px-2 py-2 w-8">kothat_id</th>
+                        <th class="px-2 py-2 w-16">ugyfel_id</th>
+                        <th class="px-2 py-2">kothat_id</th>
                         <th class="px-2 py-2 w-48">Létrehozás</th>                        
-                        <th class="px-2 py-2 w-48">Módostás</th>
+                        <th class="px-2 py-2 w-48">Módosítás</th>
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>
                 </thead>
@@ -41,12 +41,7 @@
                         <td class="border px-2 py-2">{{ $esemeny->esem_letrehozas }}</td>
                         <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>                        
                         <td class="border px-2 py-2">
-                            <div class="col float-end">                             
-                                <button type="button" wire:click="edit({{ $esemeny->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" 
-                                    title="{{ __('messages.Contacts') }}">
-                                    <i class="fas fa-address-card"></i>
-                                </button>
+                            <div class="col float-end">                                
                                 <button type="button" wire:click="edit({{ $esemeny->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">

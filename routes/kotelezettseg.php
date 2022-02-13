@@ -15,4 +15,4 @@ use App\Http\Livewire\KotelezettsegCrud;
 */
 
 Route::get('/kotelezettsegek', KotelezettsegCrud::class) -> name('kotelezettsegek');
-Route::get('/kotelezettsegek/{esemeny}', KotelezettsegCrud::class, 'destroy') -> name('kotelezettsegek.destroy');
+Route::delete('/kotelezettsegek/{esemeny}', KotelezettsegCrud::class, 'destroy') -> name('kotelezettsegek.destroy');

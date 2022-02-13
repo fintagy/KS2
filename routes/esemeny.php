@@ -15,4 +15,4 @@ use App\Http\Livewire\EsemenyCrud;
 */
 
 Route::get('/esemenyek', EsemenyCrud::class) -> name('esemenyek');
-Route::get('/esemenyek/{esemeny}', EsemenyCrud::class, 'destroy') -> name('esemenyek.destroy');
+Route::delete('/esemenyek/{esemeny}', EsemenyCrud::class, 'destroy') -> name('esemenyek.destroy');

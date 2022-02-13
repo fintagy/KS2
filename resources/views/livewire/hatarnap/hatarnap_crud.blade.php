@@ -1,6 +1,9 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
+        <div class="text-gray-500 text-sm leading-4 font-medium text-2xl">
+               Határnapok
+            </div>
             @if (session()->has('message'))
             <div class="toast" id="myToast">
                 <div class="toast-header">
@@ -25,7 +28,7 @@
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="px-2 py-2 w-8">Id</th>
-                        <th class="px-2 py-2 w-8">Határnap</th>    
+                        <th class="px-2 py-2">Határnap</th>    
                         <th class="px-2 py-2 w-20">Aktív</th>                    
                         <!-- th class="px-2 py-2 w-48">Létrehozás</th>                        
                         <th class="px-2 py-2 w-48">Módostás</th -->
@@ -47,19 +50,14 @@
                         <!-- td class="border px-2 py-2">{{ $hatarnap->esem_letrehozas }}</td>
                         <td class="border px-2 py-2">{{ $hatarnap->esem_mod}}</td -->                        
                         <td class="border px-2 py-2">
-                            <div class="col float-end">                             
-                                <button type="button" wire:click="edit({{ $hatarnap->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" 
-                                    title="{{ __('messages.Contacts') }}">
-                                    <i class="fas fa-address-card"></i>
-                                </button>
+                            <div class="col float-end">                                
                                 <button type="button" wire:click="edit({{ $hatarnap->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">
                                     <i class="fas fa-eye"></i>
                                 </button>                                
                                 <form method="POST" 
-                                    action="{{ route('hatarnap.destroy', $hatarnap) }}"
+                                    action="{{ route('hatarnapok.destroy', $hatarnap) }}"
                                     class="form d-inline-block" 
                                     title="Delete">
                                     @method('delete')

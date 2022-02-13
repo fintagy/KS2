@@ -26,9 +26,9 @@
                     <tr class="bg-gray-100">
                         <th class="px-2 py-2 w-8">Id</th>
                         <th class="px-2 py-2 w-8">kottip_id</th>
-                        <th class="px-2 py-2">kot_leiras</th>
-                        <th class="px-2 py-2 w-20">kot_szam</th>
-                        <th class="px-2 py-2 w-32">kot_kie</th>                        
+                        <th class="px-2 py-2">Leírás</th>
+                        <th class="px-2 py-2 w-20">Azonosító</th>
+                        <th class="px-2 py-2 w-32">Kié</th>                        
                         <th class="px-2 py-2 w-20">Aktív</th>
                         <!-- th class="px-2 py-2 w-32">Létrehozás</th>                        
                         <th class="px-2 py-2 w-32">Módosítás</th -->
@@ -53,19 +53,14 @@
                         <!-- td class="border px-2 py-2">{{ $kotelezettseg->kot_letrehozas }}</td>
                         <td class="border px-2 py-2">{{ $kotelezettseg->kot_mod }}</td -->
                         <td class="border px-2 py-2">
-                            <div class="col float-end">                             
-                                <button type="button" wire:click="edit({{ $kotelezettseg->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" 
-                                    title="{{ __('messages.Contacts') }}">
-                                    <i class="fas fa-address-card"></i>
-                                </button>
+                            <div class="col float-end">                                
                                 <button type="button" wire:click="edit({{ $kotelezettseg->id }})" 
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Edit') }}">
                                     <i class="fas fa-eye"></i>
                                 </button>                                
                                 <form method="POST" 
-                                    action="{{ route('kotelezettseg.destroy', $kotelezettseg) }}"
+                                    action="{{ route('kotelezettsegek.destroy', $kotelezettseg) }}"
                                     class="form d-inline-block" 
                                     title="Delete">
                                     @method('delete')

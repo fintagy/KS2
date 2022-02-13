@@ -13,8 +13,8 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="kot_leiras_textarea" wire:model="kot_leiras"
                             placeholder="...leírás"></textarea>
-                    </div>
-                    
+                        @error('kot_leiras') <span class="text-red-500">{{ $message }}</span>@enderror
+                    </div>                    
                 </div>
                 <div class="row">
                 <div class="col mb-4">
@@ -26,12 +26,12 @@
                         @error('kot_szam') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="col mb-4">
-                        <label for="szem_beosztas_input" class="block text-gray-700 text-sm font-bold mb-2">Beosztás</label>
+                        <label for="kot_kie_input" class="block text-gray-700 text-sm font-bold mb-2">Kié</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="szem_beosztas_input" wire:model="szem_beosztas"
+                            id="kot_kie_input" wire:model="kot_kie"
                             placeholder="...beosztás">
-                        @error('szem_beosztas') <span class="text-red-500">{{ $message }}</span>@enderror
+                        @error('kot_kie') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>     
                     <div class="col mb-4">
                         <label for="kot_aktiv_input" class="block text-gray-700 text-sm font-bold mb-2">Aktív</label>

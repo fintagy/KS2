@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\EsemenyCrud;
+use App\Http\Livewire\EsemenyCardCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +14,8 @@ use App\Http\Livewire\EsemenyCrud;
 |
 */
 
-Route::middleware(['auth'])->group(function () {  
+Route::middleware(['auth'])->group(function () {
     
-    //Route::get('/', function () {
-    //    return view('welcome');
-    //});
     require __DIR__.'/esemeny.php';
     require __DIR__.'/esemenycard.php';
     require __DIR__.'/ugyfel.php';
@@ -26,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
     require __DIR__.'/kotelezettseg.php';
     require __DIR__.'/hatarnap.php';
 
-    Route::get('/', EsemenyCrud::class);
+    Route::get('/', EsemenyCardCrud::class);   
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
