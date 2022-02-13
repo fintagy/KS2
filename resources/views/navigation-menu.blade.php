@@ -12,35 +12,58 @@
                 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('esemenyek') }}" :active="request()->routeIs('esemenyek')">
-                        {{ __('messages.Events') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('esemenycard') }}" :active="request()->routeIs('esemenycard')">
                         {{ __('messages.Card events') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('ugyfelek') }}" :active="request()->routeIs('ugyfelek')">
-                        {{ __('messages.Customers') }}
+                    <x-jet-nav-link href="{{ route('esemenyek') }}" :active="request()->routeIs('esemenyek')">
+                        {{ __('messages.Events') }}
                     </x-jet-nav-link>
-                </div>        
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('szemelyek') }}" :active="request()->routeIs('szemelyek')">
-                        {{ __('messages.Persons') }}
-                    </x-jet-nav-link>
-                </div>   
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('kotelezettseg') }}" :active="request()->routeIs('kotelezettseg')">
-                        {{ __('messages.Obligations') }}
-                    </x-jet-nav-link>
-                </div>        
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('hatarnap') }}" :active="request()->routeIs('hatarnap')">
-                        {{ __('messages.Deadlines') }}
-                    </x-jet-nav-link>
-                </div>   
+                </div>                
+                <div class="hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
+                    <x-jet-dropdown width="48">
+                        <x-slot name="trigger">                            
+                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                Törzsadatok
+                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>                            
+                        </x-slot>
+                        <x-slot name="content">                             
+                            <x-jet-dropdown-link href="{{ route ('ugyfelek') }}">
+                                Ügyfél
+                            </x-jet-dropdown-link>                              
+                            <x-jet-dropdown-link href="{{ route ('szemelyek') }}">
+                                Személy
+                            </x-jet-dropdown-link>                                                    
+                            <x-jet-dropdown-link href="{{ route ('hatarnapok') }}">
+                                Bevallás
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route ('hatarnapok') }}">
+                                Határidő
+                            </x-jet-dropdown-link>                            
+                        </x-slot>
+                    </x-jet-dropdown>                    
+                </div>       
+                <div class="dropdown hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1 data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Submenu &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li><a class="dropdown-item" href="#">Multi level 1</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Multi level 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -163,9 +186,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('messages.Dashboard') }}
-            </x-jet-responsive-nav-link>
+            <!-- x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+               {{ __('messages.Dashboard') }}
+            </x-jet-responsive-nav-link -->
         </div>
 
         <!-- Responsive Settings Options -->
