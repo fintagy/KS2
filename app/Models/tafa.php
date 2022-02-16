@@ -12,6 +12,7 @@ class tafa extends Model
     public $timestamps = false; 
     
     protected $fillable = [
+        'ucsoport_id',
         'tafa_kod', 
         'tafa_leiras',
         'tafa_letrehozas',

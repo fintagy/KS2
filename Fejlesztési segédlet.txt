@@ -108,3 +108,5 @@ az 'auth_mode' => null, végéhez
 
 A ks.fintagy.hu-ra felmásolás után a táblák oszlopszélessége contentalign-ja megváltozott
 
+
+{{ dd($ugyfel->maganszemelyek) }};

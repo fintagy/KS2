@@ -22,19 +22,26 @@ class UgyfelCrud extends Component
     public $ugyfel_id, $u_ucsoport_id, $ugyf_azonosito, $ugyf_leiras, $ugyf_adoszam, $ugyf_kadoszam, $ugyf_alapitas, $ugyf_letrehozas, $ugyf_mod, $ugyf_aktiv;
     public $ucsoport_id, $ucsop_nev, $ucsop_letrehozas, $ucsop_mod;
     public $maganszemely_id, $m_ugyfel_id, $m_msafa_id, $ms_adoazonosito, $ms_tajszam, $ms_szulhely, $ms_szulido, $ms_aneve, $ms_szigszam, $ms_letrehozas, $ms_mod;
+    public $msafa, $msafa_kod, $msafa_leiras, $msafa_letrehozas, $msafa_mod, $msafa_id;
     public $egyenivallalkozo_id, $e_ugyfel_id, $evafa_id, $ev_okmnyszam, $ev_statszam, $ev_nev, $ev_letrehozas, $ev_mod;    
     public $tarsasag_id, $t_ugyfel_id, $tafa_id, $tars_cegnev, $tars_cegjszam, $tars_letrehozas, $tars_mod;    
+    
     public $temp_ugyfel;   
+    public $ugyfeltipuskod;
      
     public $isModalOpen = 0;
     
     use WithPagination; 
 
     public function render()
-    {     
-        return view('livewire.ugyfel.ugyfel_crud', [            
+    {   
+        return view('livewire.ugyfel.ugyfel_crud', [ 
+
             'ugyfelek0' => ugyfel::paginate(6),            
             'ucsoportok0' => ucsoport::all(),
+            'maganszemelyek0' => maganszemely::all(),
+            'egyenivallalkozok0' => egyenivallalkozo::all(),
+            'tarsasagok0' => tarsasag::all(),
             'msafak' => msafa::all(),
             'evafak' => evafa::all(),
             'tafak' => tafa::all()

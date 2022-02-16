@@ -15,12 +15,12 @@
                 $("#myToast").toast("show");
             });
             </script>
-            @endif            
+            @endif
             <button wire:click="create()" 
                 class="btn btn-primary float-end btn-sm shadow-sm" 
                 title="{{ __('messages.New') }}">
                 <i class="fas fa-plus"></i>
-            </button>                       
+            </button>                             
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -30,18 +30,32 @@
                         <th class="px-2 py-2 w-32">Adószám</th>
                         <th class="px-2 py-2 w-32">Közösségi adószám</th>
                         <th class="px-2 py-2 w-32">Csoport</th>
+                        <th class="px-2 py-2 w-32">NAV csoport</th>
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>
                 </thead>
-                <tbody>                    
+                <tbody>
                     @foreach($ugyfelek0 as $ugyfel)
+                    {{ dd($ugyfel->maganszemelyek) }};
+                    @switch($ugyfel->ucsoport_id) 
+                        @case (1)
+                            {{ $ugyfeltipuskod = $ugyfel->maganszemelyek->msafa->msafa_kod }}
+                            @break
+                        @case (2)
+                            {{ $ugyfeltipuskod = $ugyfel->egyenivallalkozok0->evafa->evafa_kod }}
+                            @break 
+                        @case (3)
+                            {{ $ugyfeltipuskod = $ugyfel->tarsasagok0->tafa->tafa_kod }}
+                            @break
+                    @endswitch
                     <tr>
                         <td class="border px-2 py-2">{{ $ugyfel->id }}</td>
                         <td class="border px-2 py-2">{{ $ugyfel->ugyf_azonosito }}</td>
                         <td class="border px-2 py-2">{{ $ugyfel->ugyf_leiras }}</td>
                         <td class="border px-2 py-2">{{ $ugyfel->ugyf_adoszam}}</td>
                         <td class="border px-2 py-2">{{ $ugyfel->ugyf_kadoszam}}</td>
-                        <td class="border px-2 py-2">{{ $ugyfel->ucsoport->ucsop_nev}}</td>
+                        <td class="border px-2 py-2">{{ $ugyfel->ucsoport->ucsop_nev}}</td>                        
+                        <td class="border px-2 py-2">{{ $ugyfeltipuskod }}</td>
                         <td class="border px-2 py-2 w-auto" style="white-space:nowrap">
                             <div class="col float-end">                                                            
                                 <a href="{{ route('gettszemelyek', $ugyfel) }}"
