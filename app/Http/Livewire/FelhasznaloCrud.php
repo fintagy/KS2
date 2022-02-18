@@ -40,17 +40,9 @@ class FelhasznaloCrud extends Component
         $this->isModalOpen = false;
     }
 
-    public function destroy(User $felhasznalo)
-    {
-        $felhasznalo->delete();
-        return redirect()->route('felhasznalok')->with('message','A felhasználó törölve.');
-    }
-
     private function resetCreateForm()
     {       
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
-
-        
     }
 
     public function edit($id)
@@ -89,5 +81,11 @@ class FelhasznaloCrud extends Component
 
         $this->closeModalPopover();
         $this->resetCreateForm();
+    }
+
+    public function destroy(User $felhasznalo)
+    {
+        $felhasznalo->delete();
+        return redirect()->route('felhasznalok')->with('message','A felhasználó törölve.');
     }
 }

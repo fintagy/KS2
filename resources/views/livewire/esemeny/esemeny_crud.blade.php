@@ -1,29 +1,11 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
-            <div class="text-gray-500 text-sm leading-4 font-medium text-2xl">
+            <div class="text-gray-500 font-medium text-2xl">
                Események
             </div>
-            @if (session()->has('message'))
-            <div class="toast" id="myToast">
-                <div class="toast-header">
-                    <strong class="me-auto"><i class="bi-gift-fill">{{ session('message') }}</i></strong>                   
-                </div>               
-            </div>
-            <script>
-            $(document).ready(function(){
-                $("#myToast").toast({                    
-                    delay: 3000
-                });
-                $("#myToast").toast("show");
-            });
-            </script>
-            @endif            
-            <button wire:click="create()" 
-                class="btn btn-primary float-end btn-sm shadow-sm" 
-                title="{{ __('messages.New') }}">
-                <i class="fas fa-plus"></i>
-            </button>
+            @include('livewire.sablon.message')
+            @include('livewire.sablon.createButton')
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -44,25 +26,9 @@
                         <td class="border px-2 py-2">{{ $esemeny->esem_letrehozas }}</td>
                         <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>                        
                         <td class="border px-2 py-2">
-                            <div class="col float-end">                                
-                                <button type="button" wire:click="edit({{ $esemeny->id }})" 
-                                    class="btn btn-info btn-sm shadow-sm" 
-                                    title="{{ __('messages.Edit') }}">
-                                    <i class="fas fa-eye"></i>
-                                </button>                                
-                                <form method="POST" 
-                                    action="{{ route('esemenyek.destroy', $esemeny) }}"
-                                    class="form d-inline-block" 
-                                    title="Delete">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" 
-                                        class="btn btn-danger btn-sm shadow-sm" 
-                                        title="{{ __('messages.Delete') }}" 
-                                        onclick="return confirm('Biztos törölni akarja?')" >
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
+                            <div class="col float-end">
+                                @include('livewire.sablon.editButton', ['param' => "$esemeny->id"])
+                                @include('livewire.sablon.deleteForm', ['param' => "route('esemenyek.destroy', $esemeny)"])
                             </div>
                         </td>                        
                     </tr>

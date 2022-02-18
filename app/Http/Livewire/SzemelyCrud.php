@@ -67,7 +67,7 @@ class SzemelyCrud extends Component
     {         
         $this->validate([
             'ugyfel_id' => 'required',
-            'szem_beosztas' => 'max:100',
+            'szem_beosztas' => 'required|max:100',
             'szem_vezeteknev' => 'required|max:50',
             'szem_keresztnev' => 'required|max:100'
         ]);        

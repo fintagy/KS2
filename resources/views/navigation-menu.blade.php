@@ -56,7 +56,7 @@
                             <ul class="dropdown-menu dropdown-submenu py-2">
                                 <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a>
                                 </li>
-                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Cím</a>
+                                <li><a class="dropdown-item py-2" href="{{ route ('cimek') }}">Cím</a>
                                 </li>
                             </ul>                            
                             <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Bevallás</a></li>
