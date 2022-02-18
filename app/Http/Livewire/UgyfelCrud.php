@@ -22,19 +22,26 @@ class UgyfelCrud extends Component
     public $ugyfel_id, $u_ucsoport_id, $ugyf_azonosito, $ugyf_leiras, $ugyf_adoszam, $ugyf_kadoszam, $ugyf_alapitas, $ugyf_letrehozas, $ugyf_mod, $ugyf_aktiv;
     public $ucsoport_id, $ucsop_nev, $ucsop_letrehozas, $ucsop_mod;
     public $maganszemely_id, $m_ugyfel_id, $m_msafa_id, $ms_adoazonosito, $ms_tajszam, $ms_szulhely, $ms_szulido, $ms_aneve, $ms_szigszam, $ms_letrehozas, $ms_mod;
+    public $msafa, $msafa_kod, $msafa_leiras, $msafa_letrehozas, $msafa_mod, $msafa_id;
     public $egyenivallalkozo_id, $e_ugyfel_id, $evafa_id, $ev_okmnyszam, $ev_statszam, $ev_nev, $ev_letrehozas, $ev_mod;    
     public $tarsasag_id, $t_ugyfel_id, $tafa_id, $tars_cegnev, $tars_cegjszam, $tars_letrehozas, $tars_mod;    
+    
     public $temp_ugyfel;   
+    public $ugyfeltipuskod;
      
     public $isModalOpen = 0;
     
     use WithPagination; 
 
     public function render()
-    {     
-        return view('livewire.ugyfel.ugyfel_crud', [            
+    {   
+        return view('livewire.ugyfel.ugyfel_crud', [ 
+
             'ugyfelek0' => ugyfel::paginate(6),            
             'ucsoportok0' => ucsoport::all(),
+            'maganszemelyek0' => maganszemely::all(),
+            'egyenivallalkozok0' => egyenivallalkozo::all(),
+            'tarsasagok0' => tarsasag::all(),
             'msafak' => msafa::all(),
             'evafak' => evafa::all(),
             'tafak' => tafa::all()
@@ -214,7 +221,7 @@ class UgyfelCrud extends Component
                 $this->tarsasag_id = $tarsasag->tarsasag_id;
                 $this->ugyfel_id = $tarsasag->ugyfel_id;
                 $this->tafa_id = $tarsasag->tafa_id;
-                $this->tars_cegnev = $tarsasag->tarsasag_cegnev;
+                $this->tars_cegnev = $tarsasag->tars_cegnev;
                 $this->tars_cegjszam  = $tarsasag->tars_cegjszam;
                 $this->tars_letrehozas = $tarsasag->tars_letrehozas;
                 $this->tars_mod = $tarsasag->tars_mod;
@@ -223,6 +230,21 @@ class UgyfelCrud extends Component
         $this->openModalPopover();
     }
   
+    public function NAVcsoport(ugyfel $ugyfel)
+    {        
+        switch($ugyfel->ucsoport_id) {
+            case 1:
+                $this->ugyfeltipuskod = $this->maganszemely::where('ugyfel_id', $ugyfel->id)->firstOrFail()->msafa->msafa_kod;
+                break;
+            case 2:
+                $this->ugyfeltipuskod = $this->egyenivallalkoz::where('ugyfel_id', $ugyfel->id)->firstOrFail()->evafa->evafa_kod;
+                break;
+            case 3:
+                $this->ugyfeltipuskod = $this->tarsasag::where('ugyfel_id', $ugyfel->id)->firstOrFail()->tafa->tafa_kod;
+                break;
+        }                
+        return $this->ugyfeltipuskod;   
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -232,6 +254,6 @@ class UgyfelCrud extends Component
     public function destroy(ugyfel $ugyfel)
     {
         $ugyfel->delete();
-        return redirect()->route('ugyfelek.render')->with('success','Az ügyfél törölve.');
+        return redirect()->route('ugyfelek.render')->with('message','Az ügyfél törölve.');
     }
 }

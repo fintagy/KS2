@@ -14,7 +14,7 @@ class CreateTafaTable extends Migration
     public function up()
     {
         Schema::create('tafa', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
             $table->string('tafa_kod', 10);
             $table->string('tafa_leiras', 600)->nullable();
             $table->dateTime('tafa_letrehozas');

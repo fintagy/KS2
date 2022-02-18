@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     require __DIR__.'/szemely.php';
     require __DIR__.'/kotelezettseg.php';
     require __DIR__.'/hatarnap.php';
+    require __DIR__.'/felhasznalo.php';
 
     Route::get('/', EsemenyCardCrud::class);   
 });

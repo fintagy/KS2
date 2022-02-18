@@ -11,7 +11,7 @@ use App\Models\ugyfel;
 
 class SzemelyCrud extends Component
 {
-    public $szemely, $sz_ugyfel_id, $szem_beosztas, $szem_vezeteknev, $szem_keresztnev, $szem_aktiv, $szem_letrehozas, $szem_mod;
+    public $szemely, $szem_beosztas, $szem_vezeteknev, $szem_keresztnev, $szem_aktiv, $szem_letrehozas, $szem_mod, $ugyfel_id;
     public $ugyfelid;
     public $deleteId = '';
 
@@ -31,7 +31,7 @@ class SzemelyCrud extends Component
             ]);
         }else{
             return view('livewire.szemely.szemely_crud', [            
-                'szemelyek0' => szemely::paginate(6),
+                'szemelyek0' => szemely::paginate(10),
             ]);
         }        
     }
@@ -53,6 +53,7 @@ class SzemelyCrud extends Component
     }
 
     private function resetCreateForm(){
+        $this->ugyfel_id = 1;
         $this->szemely_id = null;        
         $this->szem_beosztas = '';
         $this->szem_vezeteknev = '';
@@ -65,13 +66,13 @@ class SzemelyCrud extends Component
     public function store()
     {         
         $this->validate([
-            'sz_ugyfel_id' => 'required',
+            'ugyfel_id' => 'required',
             'szem_beosztas' => 'max:100',
             'szem_vezeteknev' => 'required|max:50',
             'szem_keresztnev' => 'required|max:100'
         ]);        
         szemely::updateOrCreate(['id' => $this->szemely_id], [
-            'ugyfel_id'=> $this->sz_ugyfel_id,
+            'ugyfel_id'=> $this->ugyfel_id,
             'szem_beosztas' => $this->szem_beosztas == "" ? null : $this->szem_beosztas,
             'szem_vezeteknev' => $this->szem_vezeteknev,
             'szem_keresztnev' => $this->szem_keresztnev,
@@ -104,7 +105,7 @@ class SzemelyCrud extends Component
     public function destroy(szemely $szemely)
     {
         $szemely->delete();
-        return redirect()->route('szemelyek')->with('success','A személy törölve.');
+        return redirect()->route('szemelyek')->with('message','A személy törölve.');
     }
     
         //???

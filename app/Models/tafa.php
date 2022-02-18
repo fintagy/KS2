@@ -11,7 +11,7 @@ class tafa extends Model
     protected $table = 'tafa';
     public $timestamps = false; 
     
-    protected $fillable = [
+    protected $fillable = [        
         'tafa_kod', 
         'tafa_leiras',
         'tafa_letrehozas',

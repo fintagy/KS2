@@ -15,16 +15,16 @@
                     <x-jet-nav-link href="{{ route('esemenycard') }}" :active="request()->routeIs('esemenycard')">
                         {{ __('messages.Card events') }}
                     </x-jet-nav-link>
-                </div>
+                </div>                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('esemenyek') }}" :active="request()->routeIs('esemenyek')">
                         {{ __('messages.Events') }}
                     </x-jet-nav-link>
                 </div>                
-                <div class="hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
+                <!-- div class="hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
                     <x-jet-dropdown width="48">
                         <x-slot name="trigger">                            
-                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                            <button type="button" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
                                 Törzsadatok
                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -46,26 +46,26 @@
                             </x-jet-dropdown-link>                            
                         </x-slot>
                     </x-jet-dropdown>                    
-                </div>       
+                </div -->                       
                 <div class="dropdown hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1 data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
+                    <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 focus:outline-none transition dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Törzsadatok                        
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Submenu &raquo;</a>
-                            <ul class="dropdown-menu dropdown-submenu">
-                                <li><a class="dropdown-item" href="#">Multi level 1</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">                        
+                        <li><a class="dropdown-item py-2" href="{{ route ('ugyfelek') }}">Ügyfél &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu py-2">
+                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Multi level 2</a>
+                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Cím</a>
                                 </li>
-                            </ul>
+                            </ul>                            
+                            <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Bevallás</a></li>
+                            <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Határidő</a></li>
+                            <li><a class="dropdown-item py-2" href="{{ route ('felhasznalok') }}">Felhasználók</a></li>
                         </li>
                     </ul>
-                </div>
+                </div>                
             </div>
-
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -154,6 +154,16 @@
                                 </x-jet-dropdown-link>
                             @endif
 
+                            @auth
+                                @php
+                                    $user = Auth::user();
+                                @endphp                                
+                                @if ($user->email == 'fintagyula@fintagy.hu')
+                                    <x-jet-dropdown-link href="{{ route('register') }}">
+                                        {{ __('messages.Register') }}
+                                    </x-jet-dropdown-link>
+                                @endif
+                            @endauth
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
@@ -208,6 +218,10 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+                <div class="block px-4 py-2 text-xs text-gray-400">
+                    {{ __('messages.Manage Account') }}
+                </div>
+
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('messages.Profile') }}
                 </x-jet-responsive-nav-link>

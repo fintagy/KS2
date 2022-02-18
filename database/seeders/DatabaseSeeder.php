@@ -15,20 +15,21 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            jogosultsagSeeder::class,
             ucsoportSeeder::class,
+            userSeeder::class,
             msafaSeeder::class,
             evafaSeeder::class,
             tafaSeeder::class,
             ugyfelSeeder::class,
             maganszemelySeeder::class,
             egyenivallalkozoSeeder::class,
-            tarsasagSeeder::class,
-            userSeeder::class,
+            tarsasagSeeder::class,            
             szemelySeeder::class,
             kottipSeeder::class,
             kotelezettsegSeeder::class,
-            hatarnap2021Seeder::class,
-            hatarnap20221Seeder::class
+            //hatarnap2021Seeder::class,
+            hatarnap2022Seeder::class
         ]);
     }
 }

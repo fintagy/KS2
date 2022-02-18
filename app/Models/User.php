@@ -24,9 +24,11 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'jogosultsag_id',
         'name',
         'email',
         'password',
+        'active'
     ];
 
     /**
@@ -58,4 +60,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function jogosultsag() {
+        return $this->belongsTo(jogosultsag::class);
+    }
 }

@@ -19,6 +19,7 @@ class userSeeder extends Seeder
 
         $userek =[
              [
+                'jogosultsag_id' => 1,
                 'name'=> 'Finta Gyula',
                 'email' => 'fintagyula@fintagy.hu',
                 'email_verified_at' => null,
@@ -28,6 +29,7 @@ class userSeeder extends Seeder
                 'remember_token' => null,
                 'current_team_id' => null,
                 'profile_photo_path' => null,
+                'active' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()         
             ]

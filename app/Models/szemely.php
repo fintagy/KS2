@@ -15,7 +15,7 @@ class szemely extends Model
         'ugyfel_id',
         'szem_beosztas', 
         'szem_vezeteknev',
-        'szem_kersztnev',
+        'szem_keresztnev',
         'szem_aktiv',
         'szem_letrehozas',
         'szem_mod'

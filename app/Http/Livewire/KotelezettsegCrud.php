@@ -96,6 +96,6 @@ class KotelezettsegCrud extends Component
     public function destroy(kotelezettseg $kotelezettseg)
     {
         $kotelezettseg->delete();
-        return redirect()->route('kotelezettsegek')->with('success','A kotelezettseg törölve.');
+        return redirect()->route('kotelezettsegek')->with('message','A kotelezettseg törölve.');
     }
 }

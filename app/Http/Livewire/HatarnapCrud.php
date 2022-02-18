@@ -86,6 +86,6 @@ class HatarnapCrud extends Component
     public function destroy(hatarnap $hatarnap)
     {
         $hatarnap->delete();
-        return redirect()->route('hatarnapok')->with('success','A határnap törölve.');
+        return redirect()->route('hatarnapok')->with('message','A határnap törölve.');
     }
 }

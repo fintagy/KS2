@@ -88,6 +88,6 @@ class EsemenyCrud extends Component
     public function destroy(esemeny $esemeny)
     {
         $esemeny->delete();
-        return redirect()->route('esemenyek')->with('success','Az ügyfél törölve.');
+        return redirect()->route('esemenyek')->with('message','Az ügyfél törölve.');
     }
 }

@@ -5,7 +5,10 @@
             @foreach($evafak as $evafa)
                 <option value={{ $evafa->id }}>{{ $evafa->evafa_leiras }}</option>
             @endforeach
-        </select>                                      
+        </select> 
+        <script>
+            $('#evafa_id_select').prop('selectedIndex', -1)
+        </script>                                     
     </div>    
 </div>
 <div class="row">
