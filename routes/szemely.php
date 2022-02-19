@@ -16,4 +16,4 @@ use App\Http\Livewire\SzemelyCrud;
 
 Route::get('/szemelyek', SzemelyCrud::class)->name('szemelyek');
 Route::get('/szemelyek/{szemely}/edit', [SzemelyCrud::class, 'edit']) -> name('szemelyek.edit');
-Route::delete('/szemelyek/{szemely}', [SzemelyCrud::class, 'destroy']) -> name('szemelyek.destroy');
+Route::delete('/szemelyek/{szemely}', [SzemelyCrud::class, 'delete']) -> name('szemelyek.delete');

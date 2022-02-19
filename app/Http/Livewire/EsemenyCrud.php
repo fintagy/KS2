@@ -14,13 +14,14 @@ class EsemenyCrud extends Component
     public $esemeny, $fugyfel_id, $fkothat_id, $esem_letrehozas, $esem_mod, $esemeny_id;
     public $ugyfel, $ugyfel_id;
     public $kothat, $kothat_id;
+    public $akt_esemeny;
     public $isModalOpen = 0;
     
     use WithPagination;
 
     public function render()
     {
-        return view('livewire.esemeny.esemeny_crud', [            
+        return view('livewire.esemeny.esemeny_crud', [
             'esemenyek0' => esemeny::paginate(6),
             'ugyfelek0' => ugyfel::All(),
             'kothatok0' => kothat::All(),
@@ -85,9 +86,10 @@ class EsemenyCrud extends Component
         $this->resetCreateForm();
     }
 
-    public function destroy(esemeny $esemeny)
+    public function delete($id)
     {
-        $esemeny->delete();
-        return redirect()->route('esemenyek')->with('message','Az ügyfél törölve.');
+        $this->akt_esemeny = esemeny::find($id);
+        esemeny::find($id)->delete();
+        return redirect()->route('esemenyek')->with('message','Az esemény törölve.');
     }
 }

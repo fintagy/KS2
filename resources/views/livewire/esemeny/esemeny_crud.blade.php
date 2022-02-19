@@ -4,8 +4,8 @@
             <div class="text-gray-500 font-medium text-2xl">
                Események
             </div>
-            @include('livewire.sablon.message')
-            @include('livewire.sablon.createButton')
+            @include('sablon.message')
+            @include('sablon.createButton')
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -27,8 +27,8 @@
                         <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>                        
                         <td class="border px-2 py-2">
                             <div class="col float-end">
-                                @include('livewire.sablon.editButton', ['param' => "$esemeny->id"])
-                                @include('livewire.sablon.deleteForm', ['param' => "route('esemenyek.destroy', $esemeny)"])
+                                @include('sablon.editButton', ['param' => "$esemeny->id"])
+                                @include('sablon.deleteForm', ['param' => "route('esemenyek.delete',['esemeny' => $esemeny->id])"])
                             </div>
                         </td>                        
                     </tr>

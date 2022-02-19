@@ -12,6 +12,7 @@ class KotelezettsegCrud extends Component
 {
     public $kotelezettseg, $fkottip_id, $kot_leiras, $kot_szam, $kot_aktiv, $kot_letrehozas, $kot_mod, $kotelezettseg_id;
     public $kottip, $kottip_nev, $kottip_id;
+    public $akt_kotelezettseg;
     public $isModalOpen = 0;
     
     use WithPagination;
@@ -43,7 +44,7 @@ class KotelezettsegCrud extends Component
     private function resetCreateForm()
     {       
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
-        $this->kotelezettseg_id = null;        
+        $this->kotelezettseg_id = null;
         $this->fkottip_id = null;
         $this->kot_leiras = null;
         $this->kot_szam = null; 
@@ -93,9 +94,11 @@ class KotelezettsegCrud extends Component
     }
 
 
-    public function destroy(kotelezettseg $kotelezettseg)
+    public function delete($id)
     {
-        $kotelezettseg->delete();
-        return redirect()->route('kotelezettsegek')->with('message','A kotelezettseg törölve.');
+        $this->akt_kotelezettseg = kotelezettseg::find($id);
+        kotelezettseg::find($id)->delete();
+        return redirect()->route('kotelezettsegek')->with('message','A(z) '.$this->akt_kotelezettseg->kot_szam.' törölve.');
+
     }
 }

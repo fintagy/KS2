@@ -15,4 +15,4 @@ use App\Http\Livewire\HatarnapCrud;
 */
 
 Route::get('/hatarnapok', HatarnapCrud::class) -> name('hatarnapok');
-Route::delete('/hatarnapok/{hatarnap}', [HatarnapCrud::class, 'destroy']) -> name('hatarnapok.destroy');
+Route::delete('/hatarnapok/{hatarnap}', [HatarnapCrud::class, 'delete']) -> name('hatarnapok.delete');

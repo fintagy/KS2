@@ -1,42 +1,22 @@
 <div class="row">
-    <div class="col mb-4">       
-        <label for="evafa_id_select" class="col-sm-6 col-md-6 col-lg-6 col-xl-6 block text-gray-700 text-sm font-bold mb-2">Áfacsoport</label>                 
-        <select class="form-control shadow col-sm-6 col-md-6 col-lg-6 col-xl-6" id="evafa_id_select" wire:model="evafa_id">                                
-            @foreach($evafak as $evafa)
-                <option value={{ $evafa->id }}>{{ $evafa->evafa_leiras }}</option>
-            @endforeach
-        </select> 
-        <script>
-            $('#evafa_id_select').prop('selectedIndex', -1)
-        </script>                                     
-    </div>    
+    <div class="col mb-4">
+        @include('sablon.selectInput', ['param1' => "fe_evafa_id", 'param2' => "Áfacsoport", 'param3' => $evafak0, 'param4' => $evafa, 'param5' => "id", 'param6' => "evafa_leiras"])
+        @include('sablon.errorSend', ['param' => "fe_evafa_id"])
+    </div>
 </div>
 <div class="row">
     <div class="col mb-4">
-        <label for="ev_okmnyszam_input" class="block text-gray-700 text-sm font-bold mb-2">Nyilvántartási szám</label>
-        <input type="text"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="ev_okmnyszam_input" wire:model="ev_okmnyszam"
-            placeholder="...nyilvántartási szám">
-        @error('ev_okmnyszam') <span class="text-red-500">{{ $message }}</span>@enderror
+        @include('sablon.textInput', ['param1' => "ev_okmnyszam", 'param2' => "Nyilvántartási szám", 'param3' => "...nyilvántartási szám"])
+        @include('sablon.errorSend', ['param' => "ev_okmnyszam"])
     </div>
     <div class="col mb-4">
-        <label for="ev_statszam_input" class="block text-gray-700 text-sm font-bold mb-2">Statisztikai számjel</label>
-        <input type="text"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="ev_statszam_input" wire:model="ev_statszam"
-            placeholder="...stat. szám">
-        @error('ev_statszam') <span class="text-red-500">{{ $message }}</span>@enderror
+        @include('sablon.textInput', ['param1' => "ev_statszam", 'param2' => "Statisztikai számjel", 'param3' => "...stat. szám"])
+        @include('sablon.errorSend', ['param' => "ev_statszam"])
     </div>
 </div> 
 <div class="row">
     <div class="col mb-4">
-        <label for="ev_nev_input" class="block text-gray-700 text-sm font-bold mb-2">Név</label>
-        <input type="text"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="ev_nev_input" wire:model="ev_nev"
-            placeholder="...név">
-        @error('ev_nev') <span class="text-red-500">{{ $message }}</span>@enderror
+        @include('sablon.textInput', ['param1' => "ev_nev", 'param2' => "Név", 'param3' => "...név"])
+        @include('sablon.errorSend', ['param' => "ev_nev"])
     </div>
-</div>              
-    
+</div>

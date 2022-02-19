@@ -4,8 +4,8 @@
             <div class="text-gray-500 font-medium text-2xl">
                Ügyfelek
             </div>
-            @include('livewire.sablon.message')
-            @include('livewire.sablon.createButton')
+            @include('sablon.message')
+            @include('sablon.createButton')
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -46,8 +46,8 @@
                                     class="btn btn-info btn-sm shadow-sm" 
                                     title="{{ __('messages.Persons') }}">
                                     <i class="fas fa-users"></i></a>
-                                @include('livewire.sablon.editButton', ['param' => "$ugyfel->id"])
-                                @include('livewire.sablon.deleteForm', ['param' => "route('ugyfelek.destroy', $ugyfel)"])
+                                @include('sablon.editButton', ['param' => "$ugyfel->id"])
+                                @include('sablon.deleteForm', ['param' => "route('ugyfelek.delete', ['ugyfel' => $ugyfel->id])"])
                             </div>
                         </td>
                     </tr>

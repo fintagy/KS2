@@ -15,4 +15,4 @@ use App\Http\Livewire\CimCrud;
 */
 
 Route::get('/cimek', CimCrud::class) -> name('cimek');
-Route::delete('/cimek/{cim}', [CimCrud::class, 'destroy']) -> name('cimek.destroy');
+Route::delete('/cimek/{cim}', [CimCrud::class, 'delete']) -> name('cimek.delete');

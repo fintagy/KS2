@@ -10,13 +10,14 @@ use App\Models\cim;
 class CimCrud extends Component
 {
     public $cim, $f_kapcsolat_id, $cim_cime, $cim_aktiv, $cim_letrehozas, $cim_mod, $cim_id;
+    public $akt_cim;
     public $isModalOpen = 0;
     
     use WithPagination;
 
     public function render()
     {
-        return view('livewire.cim.cim_crud', [            
+        return view('livewire.cim.cim_crud', [
             'cimek0' => cim::paginate(6)
         ]);
     }
@@ -42,9 +43,10 @@ class CimCrud extends Component
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
     }
     
-    public function destroy(cim $cim)
+    public function delete($id)
     {
-        $cim->delete();
-        return redirect()->route('cimek')->with('message','A cím törölve.');
+        $this->akt_cim = cim::find($id);
+        cim::find($id)->delete();
+        return redirect()->route('cimek')->with('message','A(z) '.$this->akt_cim->cim_cime.' cím törölve.');
     }
 }

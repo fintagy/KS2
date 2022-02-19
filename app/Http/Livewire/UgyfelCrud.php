@@ -19,14 +19,16 @@ use App\Models\tafa;
 
 class UgyfelCrud extends Component
 {
-    public $ugyfel_id, $u_ucsoport_id, $ugyf_azonosito, $ugyf_leiras, $ugyf_adoszam, $ugyf_kadoszam, $ugyf_alapitas, $ugyf_letrehozas, $ugyf_mod, $ugyf_aktiv;
-    public $ucsoport_id, $ucsop_nev, $ucsop_letrehozas, $ucsop_mod;
-    public $maganszemely_id, $m_ugyfel_id, $m_msafa_id, $ms_adoazonosito, $ms_tajszam, $ms_szulhely, $ms_szulido, $ms_aneve, $ms_szigszam, $ms_letrehozas, $ms_mod;
+    public $ugyfel, $fu_ucsoport_id, $ugyf_azonosito, $ugyf_leiras, $ugyf_adoszam, $ugyf_kadoszam, $ugyf_alapitas, $ugyf_aktiv, $ugyf_letrehozas, $ugyf_mod, $ugyfel_id;
+    public $ucsoport, $ucsop_nev, $ucsop_letrehozas, $ucsop_mod, $ucsoport_id;
+    public $maganszemely, $fm_ugyfel_id, $fm_msafa_id, $ms_adoazonosito, $ms_tajszam, $ms_szulhely, $ms_szulido, $ms_aneve, $ms_szigszam, $ms_letrehozas, $ms_mod, $maganszemely_id;
     public $msafa, $msafa_kod, $msafa_leiras, $msafa_letrehozas, $msafa_mod, $msafa_id;
-    public $egyenivallalkozo_id, $e_ugyfel_id, $evafa_id, $ev_okmnyszam, $ev_statszam, $ev_nev, $ev_letrehozas, $ev_mod;    
-    public $tarsasag_id, $t_ugyfel_id, $tafa_id, $tars_cegnev, $tars_cegjszam, $tars_letrehozas, $tars_mod;    
+    public $egyenivallalkozo, $fe_ugyfel_id, $fe_evafa_id, $ev_okmnyszam, $ev_statszam, $ev_nev, $ev_letrehozas, $ev_mod, $egyenivallalkozo_id;
+    public $evafa, $evafa_kod, $evafa_leiras, $evafa_letrehozas, $evafa_mod, $evafa_id;
+    public $tarsasag, $ft_ugyfel_id, $ft_tafa_id, $tars_cegnev, $tars_cegjszam, $tars_letrehozas, $tars_mod, $tarsasag_id;
+    public $tafa, $tafa_kod, $tafa_leiras, $tafa_letrehozas, $tafa_mod, $tafa_id;
     
-    public $temp_ugyfel;   
+    public $temp_ugyfel;
     public $ugyfeltipuskod;
      
     public $isModalOpen = 0;
@@ -37,15 +39,15 @@ class UgyfelCrud extends Component
     {   
         return view('livewire.ugyfel.ugyfel_crud', [ 
 
-            'ugyfelek0' => ugyfel::paginate(6),            
+            'ugyfelek0' => ugyfel::paginate(6),
             'ucsoportok0' => ucsoport::all(),
             'maganszemelyek0' => maganszemely::all(),
             'egyenivallalkozok0' => egyenivallalkozo::all(),
             'tarsasagok0' => tarsasag::all(),
-            'msafak' => msafa::all(),
-            'evafak' => evafa::all(),
-            'tafak' => tafa::all()
-        ]);        
+            'msafak0' => msafa::all(),
+            'evafak0' => evafa::all(),
+            'tafak0' => tafa::all()
+        ]);
     }
 
     public function create()
@@ -64,21 +66,23 @@ class UgyfelCrud extends Component
         $this->isModalOpen = false;
     }
 
-    private function resetCreateForm(){
-        $this->ugyfel_id = null;        
-        $this->u_ucsoport_id = '';
-        $this->ugyf_azonosito = '';
+    private function resetCreateForm()
+    {
+        $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
+        $this->ugyfel_id = null;
+        $this->fu_ucsoport_id = null;
+        $this->ugyf_azonosito = null;
         $this->ugyf_leiras = '';
         $this->ugyf_adoszam = '';
         $this->ugyf_kadoszam = '';
-        $this->ugyf_alapitas = date('Y-m-d'); //indulás dátuma 2021.11.01
+        $this->ugyf_alapitas = Carbon::now()->format('Y-m-d');
         $this->ugyf_letrehozas = Carbon::now(); //
         $this->ugyf_mod = Carbon::now();
         $this->ugyf_aktiv = true;
 
         $this->maganszemely_id = null;
-        $this->ugyfel_id = '';
-        $this->msafa_id = '';
+        $this->fm_ugyfel_id = null;
+        $this->fm_msafa_id = null;
         $this->ms_adoazonosito = '';
         $this->ms_tajszam = '';
         $this->ms_szulhely = '';
@@ -88,18 +92,18 @@ class UgyfelCrud extends Component
         $this->ms_letrehozas = Carbon::now();
         $this->ms_mod = Carbon::now();
 
-        $this->egyenivallalkozo_id = '';
-        $this->ugyfel_id = '';
-        $this->evafa_id = '';
+        $this->egyenivallalkozo_id = null;
+        $this->fe_ugyfel_id = null;
+        $this->fe_evafa_id = null;
         $this->ev_okmnyszam = '';
         $this->ev_statszam = '';
         $this->ev_nev = '';
         $this->ev_letrehozas = Carbon::now();
         $this->ev_mod = Carbon::now();
 
-        $this->tarsasag_id = '';
-        $this->ugyfel_id = "";
-        $this->tafa_id = '';
+        $this->tarsasag_id = null;
+        $this->ft_ugyfel_id = null;
+        $this->ft_tafa_id = null;
         $this->tars_cegnev = '';
         $this->tars_cegjszam  = '';
         $this->tars_letrehozas = Carbon::now();
@@ -109,7 +113,7 @@ class UgyfelCrud extends Component
     public function store()
     {         
         $this->validate([
-            'u_ucsoport_id' => 'required',            
+            'fu_ucsoport_id' => 'required',
             'ugyf_azonosito' => 'max:10',
             'ugyf_leiras' => 'max:255',
             'ugyf_adoszam' => 'max:13',
@@ -117,7 +121,7 @@ class UgyfelCrud extends Component
             'ugyf_alapitas' => 'date',
         ]);        
         ugyfel::updateOrCreate(['id' => $this->ugyfel_id], [
-            'ucsoport_id'=> $this->u_ucsoport_id,
+            'ucsoport_id'=> $this->fu_ucsoport_id,
             'ugyf_azonosito' => $this->ugyf_azonosito,
             'ugyf_leiras' => $this->ugyf_leiras == "" ? null : $this->ugyf_leiras,
             'ugyf_adoszam' => $this->ugyf_adoszam == "" ? null : $this->ugyf_adoszam,
@@ -130,8 +134,8 @@ class UgyfelCrud extends Component
         $this->temp_ugyfel = ugyfel::all()->last();
         switch ($this->u_ucsoport_id) {
             case 1:
-                $this->validate([                    
-                    'ms_adoazonosito' => [Rule::unique('maganszemely')->ignore($this->maganszemely_id)],        
+                $this->validate([ 
+                    'ms_adoazonosito' => [Rule::unique('maganszemely')->ignore($this->maganszemely_id)],
                     'ms_tajszam' => ['max:9',Rule::unique('maganszemely')->ignore($this->maganszemely_id)],
                     'ms_szigszam' => ['max:8',Rule::unique('maganszemely')->ignore($this->maganszemely_id)]
                 ]);  
@@ -154,7 +158,7 @@ class UgyfelCrud extends Component
                     'evafa_id' => $this->evafa_id,
                     'ev_okmnyszam' => $this->ev_okmnyszam == "" ? null : $this->ev_okmnyszam,
                     'ev_statszam' => $this->ev_statszam == "" ? null : $this->ev_statszam,
-                    'ev_nev' => $this->ev_nev == "" ? null : $this->ev_nev,                    
+                    'ev_nev' => $this->ev_nev == "" ? null : $this->ev_nev,
                     'ev_letrehozas' => $this->ev_letrehozas,
                     'ev_mod' => $this->ev_mod
                 ]);  
@@ -178,9 +182,10 @@ class UgyfelCrud extends Component
 
     public function edit($id)
     {
+        $this->resetErrorBag(); 
         $ugyfel = ugyfel::findOrFail($id);
-        $this->ugyfel_id = $id;    
-        $this->u_ucsoport_id = $ugyfel->ucsoport_id;        
+        $this->ugyfel_id = $id;
+        $this->fu_ucsoport_id = $ugyfel->ucsoport_id;
         $this->ugyf_azonosito = $ugyfel->ugyf_azonosito;
         $this->ugyf_leiras = $ugyfel->ugyf_leiras;
         $this->ugyf_adoszam = $ugyfel->ugyf_adoszam;
@@ -190,12 +195,12 @@ class UgyfelCrud extends Component
         $this->ugyf_mod = $ugyfel->ugyf_mod;
         $this->ugyf_aktiv = $ugyfel->ugyf_aktiv == 0 ? false : true;
 
-        switch ($this->u_ucsoport_id) {
+        switch ($this->fu_ucsoport_id) {
             case 1:
-                $maganszemely = maganszemely::where('ugyfel_id', '=', $id)->firstOrFail();                
+                $maganszemely = maganszemely::where('ugyfel_id', '=', $id)->firstOrFail();
                 $this->maganszemely_id =$maganszemely->id;
-                $this->m_ugyfel_id = $maganszemely->ugyfel_id;
-                $this->m_msafa_id = $maganszemely->msafa_id;
+                $this->fm_ugyfel_id = $maganszemely->ugyfel_id;
+                $this->fm_msafa_id = $maganszemely->msafa_id;
                 $this->ms_adoazonosito = $maganszemely->ms_adoazonosito;
                 $this->ms_tajszam = $maganszemely->ms_tajszam;
                 $this->ms_szulhely = $maganszemely->ms_szulhely;
@@ -208,8 +213,8 @@ class UgyfelCrud extends Component
             case 2:
                 $egyenivallalkozo = egyenivallalkozo::where('ugyfel_id', '=', $id)->firstOrFail();
                 $this->egyenivallalkozo_id = $egyenivallalkozo->egyenivallalkozo_id;
-                $this->ugyfel_id = $egyenivallalkozo->ugyfel_id;
-                $this->evafa_id = $egyenivallalkozo->evafa_id;
+                $this->fe_ugyfel_id = $egyenivallalkozo->ugyfel_id;
+                $this->fe_evafa_id = $egyenivallalkozo->evafa_id;
                 $this->ev_okmnyszam = $egyenivallalkozo->ev_okmnyszam;
                 $this->ev_statszam = $egyenivallalkozo->ev_statszam;
                 $this->ev_nev = $egyenivallalkozo->ev_nev;
@@ -219,8 +224,8 @@ class UgyfelCrud extends Component
             case 3:
                 $tarsasag = tarsasag::where('ugyfel_id', '=', $id)->firstOrFail();
                 $this->tarsasag_id = $tarsasag->tarsasag_id;
-                $this->ugyfel_id = $tarsasag->ugyfel_id;
-                $this->tafa_id = $tarsasag->tafa_id;
+                $this->ft_ugyfel_id = $tarsasag->ugyfel_id;
+                $this->ft_tafa_id = $tarsasag->tafa_id;
                 $this->tars_cegnev = $tarsasag->tars_cegnev;
                 $this->tars_cegjszam  = $tarsasag->tars_cegjszam;
                 $this->tars_letrehozas = $tarsasag->tars_letrehozas;
@@ -245,15 +250,11 @@ class UgyfelCrud extends Component
         }                
         return $this->ugyfeltipuskod;   
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Ugyfel  $ugyfel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ugyfel $ugyfel)
+
+    public function delete($id)
     {
-        $ugyfel->delete();
-        return redirect()->route('ugyfelek.render')->with('message','Az ügyfél törölve.');
+        $this->akt_ugyfel = ugyfel::find($id);
+        ugyfel::find($id)->delete();
+        return redirect()->route('ugyfelek.render')->with('message','A(z) '.$this->akt_ugyfel->ugyf_leiras.' törölve.');
     }
 }

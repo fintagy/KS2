@@ -15,4 +15,4 @@ use App\Http\Livewire\FelhasznaloCrud;
 */
 
 Route::get('/felhasznalok', FelhasznaloCrud::class) -> name('felhasznalok');
-Route::delete('/felhasznalok/{felhasznalo}', [FelhasznaloCrud::class, 'destroy']) -> name('felhasznalok.destroy');
+Route::delete('/felhasznalok/{felhasznalo}', [FelhasznaloCrud::class, 'delete']) -> name('felhasznalok.delete');

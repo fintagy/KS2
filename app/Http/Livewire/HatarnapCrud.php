@@ -13,6 +13,7 @@ class HatarnapCrud extends Component
     public $hatarnap, $hatn_nap, $hatn_aktiv, $hatn_letrehozas, $hatn_mod, $hatarnap_id;
     private $hatarnapok;
     public $search = '';
+    public $akt_hatarnap;
     public $isModalOpen = 0;
     public $objects = []; 
     
@@ -47,7 +48,7 @@ class HatarnapCrud extends Component
     private function resetCreateForm(){
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
         $this->hatarnap_id = null;        
-        $this->hatn_nap = Carbon::now()->endOfDay()->format('Y-m-d\TH:i');        
+        $this->hatn_nap = Carbon::now()->endOfDay()->format('Y-m-d\TH:i');
         $this->hatn_aktiv = true;
         $this->hatn_letrehozas = Carbon::now();
         $this->hatn_mod = Carbon::now();
@@ -83,9 +84,10 @@ class HatarnapCrud extends Component
         $this->openModalPopover();
     }
 
-    public function destroy(hatarnap $hatarnap)
+    public function delete($id)
     {
-        $hatarnap->delete();
-        return redirect()->route('hatarnapok')->with('message','A határnap törölve.');
+        $this->akt_hatarnap = hatarnap::find($id);
+        hatarnap::find($id)->delete();
+        return redirect()->route('hatarnapok')->with('message','A(z) '.$this->akt_hatarnap->hatn_nap.' törölve.');
     }
 }

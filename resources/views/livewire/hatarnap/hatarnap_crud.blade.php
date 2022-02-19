@@ -4,8 +4,8 @@
             <div class="text-gray-500 font-medium text-2xl">
                Határidők
             </div>
-            @include('livewire.sablon.message')
-            @include('livewire.sablon.createButton')
+            @include('sablon.message')
+            @include('sablon.createButton')
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -20,11 +20,11 @@
                     <tr>
                         <td class="border px-2 py-2">{{ $hatarnap->id }}</td>
                         <td class="border px-2 py-2">{{ $hatarnap->hatn_nap }}</td>
-                        @include('livewire.sablon.aktivCella', ['param' => "$hatarnap->hatn_aktiv"])
+                        @include('sablon.aktivCella', ['param' => "$hatarnap->hatn_aktiv"])
                         <td class="border px-2 py-2">
                             <div class="col float-end">
-                                @include('livewire.sablon.editButton', ['param' => "$hatarnap->id"])
-                                @include('livewire.sablon.deleteForm', ['param' => "route('hatarnapok.destroy', $hatarnap)"])
+                                @include('sablon.editButton', ['param' => "$hatarnap->id"])
+                                @include('sablon.deleteForm', ['param' => "route('hatarnapok.delete', ['hatarnap' => $hatarnap->id])"])
                             </div>
                         </td>                        
                     </tr>

@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Carbon\Carbon;
-
 use App\Models\szemely;
 use App\Models\ugyfel;
 
@@ -13,6 +12,7 @@ class SzemelyCrud extends Component
 {
     public $szemely, $szem_beosztas, $szem_vezeteknev, $szem_keresztnev, $szem_aktiv, $szem_letrehozas, $szem_mod, $ugyfel_id;
     public $ugyfelid;
+    public $akt_szemely;
     public $deleteId = '';
 
     public $isModalOpen = 0;
@@ -102,10 +102,11 @@ class SzemelyCrud extends Component
         $this->openModalPopover();
     }
 
-    public function destroy(szemely $szemely)
+    public function delete($id)
     {
-        $szemely->delete();
-        return redirect()->route('szemelyek')->with('message','A személy törölve.');
+        $this->akt_szemely = szemely::find($id);
+        szemely::find($id)->delete();
+        return redirect()->route('szemelyek')->with('message',$this->akt_szemely->szem_vezeteknev.' '.$this->akt_szemely->szem_keresztnev.' törölve.');
     }
     
         //???
@@ -116,7 +117,8 @@ class SzemelyCrud extends Component
     }
 
     public function getszemelyek(ugyfel $ugyfel)
-    {        
+    {
+        
         return view('livewire.szemely.szemely-crud', [
             'szemelyek0' => szemely::where('ugyfel_id', $ugyfel->id)->paginate(7),
         ]);

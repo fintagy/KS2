@@ -12,6 +12,7 @@ class FelhasznaloCrud extends Component
 {
     public $felhasznalo, $fjogosultsag_id, $name, $email, $active, $created_at, $updated_at, $users_id;
     public $jogosultsag, $jog_nev, $jog_leiras, $jog_aktiv, $jog_letrehozas, $jog_mod, $jogosultsag_id;
+    public $akt_felhasznalo;
     public $isModalOpen = 0;
     
     use WithPagination;
@@ -83,9 +84,10 @@ class FelhasznaloCrud extends Component
         $this->resetCreateForm();
     }
 
-    public function destroy(User $felhasznalo)
+    public function delete($id)
     {
-        $felhasznalo->delete();
-        return redirect()->route('felhasznalok')->with('message','A felhasználó törölve.');
+        $this->akt_felhasznalo = User::find($id);
+        User::find($id)->delete();
+        return redirect()->route('felhasznalok')->with('message','A(z) '.$this->akt_felhasznalo->name.' cím törölve.');
     }
 }

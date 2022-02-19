@@ -4,8 +4,8 @@
             <div class="text-gray-500 font-medium text-2xl">
                Felhasználók
             </div>
-            @include('livewire.sablon.message')
-            @include('livewire.sablon.createButton')
+            @include('sablon.message')
+            @include('sablon.createButton')
             <table class="table-fixed w-full pb-4">
                 <thead>
                     <tr class="bg-gray-100">
@@ -24,11 +24,11 @@
                         <td class="border px-2 py-2">{{ $felhasznalo->name }}</td>
                         <td class="border px-2 py-2">{{ $felhasznalo->email }}</td>
                         <td class="border px-2 py-2">{{ $felhasznalo->jogosultsag->jog_nev}}</td>
-                        @include('livewire.sablon.aktivCella', ['param' => "$felhasznalo->active"])
+                        @include('sablon.aktivCella', ['param' => "$felhasznalo->active"])
                         <td class="border px-2 py-2">
                             <div class="col float-end">
-                                @include('livewire.sablon.editButton', ['param' => "$felhasznalo->id"])
-                                @include('livewire.sablon.deleteForm', ['param' => "route('felhasznalok.destroy', $felhasznalo)"])
+                                @include('sablon.editButton', ['param' => "$felhasznalo->id"])
+                                @include('sablon.deleteForm', ['param' => "route('felhasznalok.delete', ['felhasznalo' => $felhasznalo->id])"])
                             </div>
                         </td>
                     </tr>
