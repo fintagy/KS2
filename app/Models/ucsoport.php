@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ucsoport extends Model
+class Ucsoport extends Model
 {
     use HasFactory;
 
@@ -19,6 +19,6 @@ class ucsoport extends Model
     ];  
 
     public function ugyfelek() {
-        return $this->hasMany(ugyfel::class); 
+        return $this->hasMany(Ugyfel::class); 
     }
 }

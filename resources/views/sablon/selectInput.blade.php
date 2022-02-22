@@ -4,6 +4,8 @@
         <option value= {{ $param4->$param5 }}>{{ $param4->$param6 }}</option>
     @endforeach
 </select>
-<script>
-    $('#{{ $param1 }}_select').prop('selectedIndex', -1)
-</script>
+@if(isset($this->ujRecord) && $this->ujRecord)
+    <script>
+        $('#{{ $param1 }}_select').prop('selectedIndex', -1)
+    </script>
+@endif

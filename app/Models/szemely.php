@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class szemely extends Model
+class Szemely extends Model
 {
     use HasFactory;
     protected $table = 'szemely';
@@ -22,10 +22,10 @@ class szemely extends Model
     ];
 
     public function kapcsolatok() {
-        return $this->hasMany(kapcsolat::class); 
+        return $this->hasMany(Kapcsolat::class); 
     }
 
     public function ugyfel() {
-        return $this->belongsTo(ugyfel::class);
+        return $this->belongsTo(Ugyfel::class);
     }    
 }

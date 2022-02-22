@@ -12,7 +12,7 @@
                         <th class="px-2 py-2 w-8">Id</th>
                         <th class="px-2 py-2 w-32">Név</th>
                         <th class="px-2 py-2 w-48">Ímél</th>
-                        <th class="px-2 py-2">Jogosultság</th>    
+                        <th class="px-2 py-2">Jogosultság</th>
                         <th class="px-2 py-2 w-20">Aktív</th>
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>

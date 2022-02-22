@@ -46,25 +46,30 @@
                             </x-jet-dropdown-link>                            
                         </x-slot>
                     </x-jet-dropdown>                    
-                </div -->                       
+                </div -->
                 <div class="dropdown hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
                     <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 focus:outline-none transition dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Törzsadatok                        
+                        Törzsadatok
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">                        
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item py-2" href="{{ route ('ugyfelek') }}">Ügyfél &raquo;</a>
                             <ul class="dropdown-menu dropdown-submenu py-2">
-                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a>
-                                </li>
-                                <li><a class="dropdown-item py-2" href="{{ route ('cimek') }}">Cím</a>
-                                </li>
-                            </ul>                            
-                            <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Bevallás</a></li>
-                            <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Határidő</a></li>
-                            <li><a class="dropdown-item py-2" href="{{ route ('felhasznalok') }}">Felhasználók</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route ('cimek') }}">Cím</a></li>
+                                <li><div class="border-t border-gray-100"></div></li>
+                                <li><a class="dropdown-item py-2" href="{{ route ('ucsoportok') }}">Típus</a></li>
+                            </ul>
                         </li>
+                        <li><a class="dropdown-item py-2" href="{{ route ('kotelezettsegek') }}">Bevallás &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu py-2">
+                                <li><a class="dropdown-item py-2" href="{{ route ('kothatok') }}">Bevallások</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route ('hatarnapok') }}">Határidő</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route ('kottipusok') }}">Típus</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item py-2" href="{{ route ('felhasznalok') }}">Felhasználó</a></li>
                     </ul>
-                </div>                
+                </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
@@ -157,7 +162,7 @@
                             @auth
                                 @php
                                     $user = Auth::user();
-                                @endphp                                
+                                @endphp
                                 @if ($user->email == 'fintagyula@fintagy.hu')
                                     <x-jet-dropdown-link href="{{ route('register') }}">
                                         {{ __('messages.Register') }}

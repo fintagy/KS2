@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\tarsasag;
+use App\Models\Tarsasag;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -27,6 +27,6 @@ class tarsasagSeeder extends Seeder
                 'tars_mod' => Carbon::now()
             ]
         ];
-        tarsasag::insert($tarsasagok);
+        Tarsasag::insert($tarsasagok);
     }
 }

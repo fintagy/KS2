@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ucsoport;
+use App\Models\Ucsoport;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -32,6 +32,6 @@ class ucsoportSeeder extends Seeder
             'ucsop_mod' => Carbon::now(),
             ]
         ];
-        ucsoport::insert($ucsoportok);
+        Ucsoport::insert($ucsoportok);
     }
 }

@@ -5,16 +5,18 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Carbon\Carbon;
-use App\Models\esemeny;
-use App\Models\ugyfel;
-use App\Models\kothat;
+use App\Models\Esemeny;
+use App\Models\Ugyfel;
+use App\Models\Kothat;
 
 class EsemenyCrud extends Component
 {
-    public $esemeny, $fugyfel_id, $fkothat_id, $esem_letrehozas, $esem_mod, $esemeny_id;
+    public $esemeny, $fe_ugyfel_id, $fe_kothat_id, $esem_letrehozas, $esem_mod, $esemeny_id;
     public $ugyfel, $ugyfel_id;
     public $kothat, $kothat_id;
     public $akt_esemeny;
+    private bool $ujRecord = false;
+
     public $isModalOpen = 0;
     
     use WithPagination;
@@ -22,15 +24,16 @@ class EsemenyCrud extends Component
     public function render()
     {
         return view('livewire.esemeny.esemeny_crud', [
-            'esemenyek0' => esemeny::paginate(6),
-            'ugyfelek0' => ugyfel::All(),
-            'kothatok0' => kothat::All(),
+            'esemenyek0' => Esemeny::paginate(6),
+            'ugyfelek0' => Ugyfel::All(),
+            'kothatok0' => Kothat::All(),
         ]);
     }
 
     public function create()
     {
         $this->resetCreateForm();
+        $this->ujRecord = true;
         $this->openModalPopover();
     }
 
@@ -48,8 +51,8 @@ class EsemenyCrud extends Component
     {
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
         $this->esemeny_id = null; 
-        $this->fugyfel_id = null; 
-        $this->fkothat_id = null;
+        $this->fe_ugyfel_id = null; 
+        $this->fe_kothat_id = null;
         $this->esemeny_letrehozas = Carbon::now();
         $this->esemeny_mod = Carbon::now();
     }
@@ -57,10 +60,12 @@ class EsemenyCrud extends Component
     public function edit($id)
     {
         $this->resetErrorBag();
-        $esemeny = esemeny::findOrFail($id);
+        $this->ujRecord = false;
+        
+        $esemeny = Esemeny::findOrFail($id);
         $this->esemeny_id = $id;
-        $this->fugyfel_id = $esemeny->ugyfel_id;
-        $this->fkothat_id = $esemeny->kothat_id;        
+        $this->fe_ugyfel_id = $esemeny->ugyfel_id;
+        $this->fe_kothat_id = $esemeny->kothat_id;
         $this->esemeny_letrehozas = $esemeny->esemeny_letrehozas;
         $this->esemeny_mod = $esemeny->esemeny_mod;
     
@@ -68,17 +73,17 @@ class EsemenyCrud extends Component
     }
 
     public function store()
-    {         
+    {
         $this->validate([
             'fugyfel_id' => 'required',
             'fkothat_id' => 'required',
-        ]);        
-        esemeny::updateOrCreate(['id' => $this->esemeny_id], [            
+        ]);
+        Esemeny::updateOrCreate(['id' => $this->esemeny_id], [
             'ugyfel_id' => $this->fugyfel_id,
-            'kothat_id' => $this->fkothat_id,            
+            'kothat_id' => $this->fkothat_id,
             'esemeny_letrehozas' => $this->esemeny_letrehozas,
             'esemeny_mod' => $this->esemeny_mod,
-        ]);        
+        ]);
         
         session()->flash('message', $this->esemeny_id ? $this->esemeny_id.' esemény frissítve.' : 'Új feladat rögzítve.');
 
@@ -88,8 +93,8 @@ class EsemenyCrud extends Component
 
     public function delete($id)
     {
-        $this->akt_esemeny = esemeny::find($id);
-        esemeny::find($id)->delete();
+        $this->akt_esemeny = Esemeny::find($id);
+        Esemeny::find($id)->delete();
         return redirect()->route('esemenyek')->with('message','Az esemény törölve.');
     }
 }

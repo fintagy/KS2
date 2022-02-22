@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class hatarnap extends Model
+class Hatarnap extends Model
 {
     use HasFactory;
     protected $table = 'hatarnap';
@@ -19,6 +19,6 @@ class hatarnap extends Model
     ];  
 
     public function kothatok() {
-        return $this->hasMany(kothat::class); 
+        return $this->hasMany(Kothat::class); 
     }
 }

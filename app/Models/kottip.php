@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kottip extends Model
+class Kottip extends Model
 {
     use HasFactory;
     protected $table = 'kottip';
@@ -18,6 +18,6 @@ class kottip extends Model
     ];  
 
     public function kotelezettsegek() {
-        return $this->hasMany(kotelezettseg::class); 
+        return $this->hasMany(Kotelezettseg::class); 
     }
 }

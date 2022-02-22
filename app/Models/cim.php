@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cim extends Model
+class Cim extends Model
 {
     use HasFactory;
     protected $table = 'cim';
@@ -20,6 +20,6 @@ class cim extends Model
     ];
 
     public function kapcsolat() {
-        return $this->belongsTo(kapcsolat::class);
+        return $this->belongsTo(Kapcsolat::class);
     }  
 }

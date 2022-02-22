@@ -62,6 +62,6 @@ class User extends Authenticatable
     ];
 
     public function jogosultsag() {
-        return $this->belongsTo(jogosultsag::class);
+        return $this->belongsTo(Jogosultsag::class);
     }
 }

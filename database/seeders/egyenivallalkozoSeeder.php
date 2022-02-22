@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\egyenivallalkozo;
+use App\Models\Egyenivallalkozo;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -28,6 +28,6 @@ class egyenivallalkozoSeeder extends Seeder
                 'ev_mod' => Carbon::now()         
             ]
         ];
-        egyenivallalkozo::insert($egyenivallalkozok);
+        Egyenivallalkozo::insert($egyenivallalkozok);
     }
 }

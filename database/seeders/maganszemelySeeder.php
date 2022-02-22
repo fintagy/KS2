@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\maganszemely;
+use App\Models\Maganszemely;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -42,6 +42,6 @@ class maganszemelySeeder extends Seeder
                 'ms_mod' => Carbon::now()    
             ]
         ];
-        maganszemely::insert($maganszemelyek);
+        Maganszemely::insert($maganszemelyek);
     }
 }

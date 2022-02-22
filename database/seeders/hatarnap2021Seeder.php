@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-use App\Models\hatarnap;
+use App\Models\Hatarnap;
 
 class hatarnap2021Seeder extends Seeder
 {
@@ -408,6 +408,6 @@ class hatarnap2021Seeder extends Seeder
                 'hatn_mod' => Carbon::now(),
             ],
         ];
-        hatarnap::insert($hatarnapok);
+        Hatarnap::insert($hatarnapok);
     }
 }

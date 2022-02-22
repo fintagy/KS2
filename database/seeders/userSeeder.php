@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -34,6 +34,6 @@ class userSeeder extends Seeder
                 'updated_at' => Carbon::now()         
             ]
         ];
-        user::insert($userek);
+        User::insert($userek);
     }
 }

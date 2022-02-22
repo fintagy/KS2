@@ -6,12 +6,8 @@
             <form class="bg-white sm:p-6 sm:pb-4">
                 <div class="row">
                     <div class="col mb-4">
-                        @include('sablon.selectInput', ['param1' => "fe_ugyfel_id", 'param2' => "Ügyfél", 'param3' => $ugyfelek0, 'param4' => $ugyfel, 'param5' => "id", 'param6' => "ugyf_adoszam"])
-                        @include('sablon.errorSend', ['param' => "fe_ugyfel_id"])
-                    </div>
-                    <div class="col mb-4">
-                        @include('sablon.selectInput', ['param1' => "fe_kothat_id", 'param2' => "KötHat", 'param3' => $kothatok0, 'param4' => $kothat, 'param5' => "id", 'param6' => "hatarnap_id"])
-                        @include('sablon.errorSend', ['param' => "fe_kothat_id"])
+                        @include('sablon.textInput', ['param1' => "kottip_nev", 'param2' => "Bevallás típus", 'param3' => "...típusnév"])
+                        @include('sablon.errorSend', ['param' => 'kottip_nev'])
                     </div>
                 </div>
                 <div class="pb-4">

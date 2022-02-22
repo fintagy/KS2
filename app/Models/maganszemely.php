@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class maganszemely extends Model
+class Maganszemely extends Model
 {
     use HasFactory;
     protected $table = 'maganszemely';
@@ -25,9 +25,9 @@ class maganszemely extends Model
     ];
 
     public function ugyfel() {
-        return $this->belongsTo(ugyfel::class);
+        return $this->belongsTo(Ugyfel::class);
     }    
     public function msafa() {
-        return $this->belongsTo(msafa::class);
+        return $this->belongsTo(Msafa::class);
     }
 }

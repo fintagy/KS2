@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class egyenivallalkozo extends Model
+class Egyenivallalkozo extends Model
 {
     use HasFactory;
     protected $table = 'egyenivallalkozo';
@@ -22,9 +22,9 @@ class egyenivallalkozo extends Model
     ];
 
     public function ugyfel() {
-        return $this->belongsTo(ugyfel::class);
+        return $this->belongsTo(Ugyfel::class);
     }    
     public function evafa() {
-        return $this->belongsTo(evafa::class);
+        return $this->belongsTo(Evafa::class);
     }
 }

@@ -22,21 +22,21 @@
                         <td class="border px-2 py-2">{{ $szemely->id }}</td>
                         <td class="border px-2 py-2">{{ $szemely->szem_vezeteknev }}</td>
                         <td class="border px-2 py-2">{{ $szemely->szem_keresztnev }}</td>
-                        <td class="border px-2 py-2">{{ $szemely->szem_beosztas}}</td>                        
+                        <td class="border px-2 py-2">{{ $szemely->szem_beosztas}}</td>
                         <td class="border px-2 py-2">
                             <div class="col float-end">
                                 @include('sablon.editButton', ['param' => "$szemely->id"])
                                 @include('sablon.deleteForm', ['param' => "route('szemelyek.delete', ['szemely' => $szemely->id])"])
                             </div>
-                        </td>                        
+                        </td>
                     </tr>
                     @endforeach
-                </tbody>                
+                </tbody>
             </table>
             <div style="z-index: -1;">{{ $szemelyek0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
                 @include('livewire.szemely.szemely_create')
             @endif
-        </div>        
+        </div>
     </div>
 </div>

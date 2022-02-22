@@ -6,12 +6,12 @@
             <form class="bg-white sm:p-6 sm:pb-4">
                 <div class="row">
                     <div class="col mb-4">
-                        @include('sablon.selectInput', ['param1' => "fe_ugyfel_id", 'param2' => "Ügyfél", 'param3' => $ugyfelek0, 'param4' => $ugyfel, 'param5' => "id", 'param6' => "ugyf_adoszam"])
-                        @include('sablon.errorSend', ['param' => "fe_ugyfel_id"])
+                        @include('sablon.selectInput', ['param1' => "fk_hatarnap_id", 'param2' => "Határnap", 'param3' => $hatarnapok2, 'param4' => $hatarnap, 'param5' => "id", 'param6' => "hatn_nap"])
+                        @include('sablon.errorSend', ['param' => "fk_hatarnap_id"])
                     </div>
                     <div class="col mb-4">
-                        @include('sablon.selectInput', ['param1' => "fe_kothat_id", 'param2' => "KötHat", 'param3' => $kothatok0, 'param4' => $kothat, 'param5' => "id", 'param6' => "hatarnap_id"])
-                        @include('sablon.errorSend', ['param' => "fe_kothat_id"])
+                        @include('sablon.selectInput', ['param1' => "fk_kotelezettseg_id", 'param2' => "Kötelezettség", 'param3' => $kotelezettsegek0, 'param4' => $kotelezettseg, 'param5' => "id", 'param6' => "kot_szam"])
+                        @include('sablon.errorSend', ['param' => "fk_kotelezettseg_id"])
                     </div>
                 </div>
                 <div class="pb-4">

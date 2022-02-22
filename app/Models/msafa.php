@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class msafa extends Model
+class Msafa extends Model
 {
     use HasFactory;
     protected $table = 'msafa';
@@ -19,6 +19,6 @@ class msafa extends Model
     ];
     
     public function maganszemelyek() {
-        return $this->hasMany(maganszemely::class); 
+        return $this->hasMany(Maganszemely::class); 
     }
 }

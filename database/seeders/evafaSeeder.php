@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\evafa;
+use App\Models\Evafa;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -35,6 +35,6 @@ class evafaSeeder extends Seeder
                 'evafa_mod' => Carbon::now(),
             ]
         ];
-        evafa::insert($evafak);
+        Evafa::insert($evafak);
     }
 }

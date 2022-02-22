@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class esemeny extends Model
+class Esemeny extends Model
 {
     use HasFactory;
     protected $table = 'esemeny';
@@ -19,9 +19,9 @@ class esemeny extends Model
     ];
     
     public function kothat() {
-        return $this->belongsTo(kothat::class);
+        return $this->belongsTo(Kothat::class);
     }
     public function ugyfel() {
-        return $this->belongsTo(ugyfel::class);
+        return $this->belongsTo(Ugyfel::class);
     } 
 }

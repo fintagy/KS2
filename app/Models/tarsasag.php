@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tarsasag extends Model
+class Tarsasag extends Model
 {
     use HasFactory;
     protected $table = 'tarsasag';
@@ -21,9 +21,9 @@ class tarsasag extends Model
     ];
 
     public function ugyfel() {
-        return $this->belongsTo(ugyfel::class);
+        return $this->belongsTo(Ugyfel::class);
     }    
     public function tafa() {
-        return $this->belongsTo(tafa::class);
+        return $this->belongsTo(Tafa::class);
     }
 }

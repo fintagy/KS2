@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\szemely;
+use App\Models\Szemely;
 
 class szemelySeeder extends Seeder
 {
@@ -14,6 +14,6 @@ class szemelySeeder extends Seeder
      */
     public function run()
     {
-        szemely::factory()->count(15)->create();
+        Szemely::factory()->count(15)->create();
     }
 }

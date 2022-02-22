@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-use App\Models\kotelezettseg;
+use App\Models\Kotelezettseg;
 
 class kotelezettsegSeeder extends Seeder
 {
@@ -90,6 +90,6 @@ class kotelezettsegSeeder extends Seeder
                 'kot_mod' => Carbon::now(),
             ]
         ];
-        kotelezettseg::insert($kotelezettsegek);
+        Kotelezettseg::insert($kotelezettsegek);
     }
 }

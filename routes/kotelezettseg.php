@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\KotelezettsegCrud;
+use App\Http\Livewire\Kotelezettseg\KotelezettsegCrud;
 
 /*
 |--------------------------------------------------------------------------

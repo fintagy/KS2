@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-use App\Models\jogosultsag;
+use App\Models\Jogosultsag;
 
 class jogosultsagSeeder extends Seeder
 {
@@ -26,6 +26,6 @@ class jogosultsagSeeder extends Seeder
                 'jog_mod' => Carbon::now()         
             ]
         ];
-        jogosultsag::insert($jogosultsagok);
+        Jogosultsag::insert($jogosultsagok);
     }
 }

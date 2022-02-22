@@ -12,11 +12,11 @@
                 </div>
                 <div class="row">
                     <div class="col mb-4">
-                        @include('sablon.textInput', ['param1' => "kot_szam", 'param2' => "Azonosító", 'param3' => "...név"])
+                        @include('sablon.textInput', ['param1' => "kot_szam", 'param2' => "Azonosító", 'param3' => "...azonosító"])
                         @include('sablon.errorSend', ['param' => 'kot_szam'])
                     </div>
                     <div class="col mb-4">
-                        @include('sablon.textInput', ['param1' => "kot_kie", 'param2' => "Kié", 'param3' => "...beosztás"])
+                        @include('sablon.textInput', ['param1' => "kot_kie", 'param2' => "Kié", 'param3' => "...kié"])
                         @include('sablon.errorSend', ['param' => 'kot_kie'])
                     </div>
                     <div class="col mb-4">

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\tafa;
+use App\Models\Tafa;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -40,6 +40,6 @@ class tafaSeeder extends Seeder
                 'tafa_mod' => Carbon::now(),
             ]
         ];
-        tafa::insert($tafak);
+        Tafa::insert($tafak);
     }
 }

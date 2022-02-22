@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ugyfel extends Model
+class Ugyfel extends Model
 {
     use HasFactory;
     protected $table = 'ugyfel';
@@ -24,25 +24,25 @@ class ugyfel extends Model
     ];  
 
     public function esemenyek() {
-        return $this->hasMany(esemeny::class); 
+        return $this->hasMany(Esemeny::class); 
     }
     public function tarsasagok() {
-        return $this->hasMany(tarsasag::class); 
+        return $this->hasMany(Tarsasag::class); 
     }
     public function egyenivallalkozok() {
-        return $this->hasMany(egyenivallalkozo::class); 
+        return $this->hasMany(Egyenivallalkozo::class); 
     }
     public function maganszemelyek() {
-        return $this->hasMany(maganszemely::class); 
+        return $this->hasMany(Maganszemely::class); 
     }
     public function szemelyek() {
-        return $this->hasMany(szemely::class); 
+        return $this->hasMany(Szemely::class); 
     }
     public function kapcsolatok() {
-        return $this->hasMany(kapcsolat::class); 
+        return $this->hasMany(Kapcsolat::class); 
     }
 
     public function ucsoport() {
-        return $this->belongsTo(ucsoport::class);
+        return $this->belongsTo(Ucsoport::class);
     } 
 }

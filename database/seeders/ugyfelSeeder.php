@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ugyfel;
+use App\Models\Ugyfel;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -60,6 +60,6 @@ class ugyfelSeeder extends Seeder
                 'ugyf_mod' => Carbon::now()
             ]
         ];
-        ugyfel::insert($ugyfelek);
+        Ugyfel::insert($ugyfelek);
     }
 }

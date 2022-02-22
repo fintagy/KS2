@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-use App\Models\kottip;
+use App\Models\Kottip;
 
 class kottipSeeder extends Seeder
 {
@@ -38,6 +38,6 @@ class kottipSeeder extends Seeder
             'kottip_mod' => Carbon::now(),
             ]
         ];
-        kottip::insert($kottipusok);
+        Kottip::insert($kottipusok);
     }
 }

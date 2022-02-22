@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kothat extends Model
+class Kothat extends Model
 {
     use HasFactory;
     protected $table = 'kothat';
@@ -13,19 +13,20 @@ class kothat extends Model
 
     protected $fillable = [
         'hatarnap_id',
-        'kot_id',
+        'kotelezettseg_id',
         'kothat_letrehozas',
         'kothat_mod'
     ];
     
     public function esemenyek() {
-        return $this->hasMany(esemeny::class); 
+        return $this->hasMany(Esemeny::class); 
     }
 
     public function kotelezettseg() {
-        return $this->belongsTo(kotelezettseg::class);
+        return $this->belongsTo(Kotelezettseg::class);
     }
+
     public function hatarnap() {
-        return $this->belongsTo(hatarnap::class);
-    } 
+        return $this->belongsTo(Hatarnap::class);
+    }
 }

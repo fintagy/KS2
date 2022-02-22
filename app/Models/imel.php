@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class imel extends Model
+class Imel extends Model
 {
     use HasFactory;
     protected $table = 'imel';
@@ -20,6 +20,6 @@ class imel extends Model
     ];
 
     public function kapcsolat() {
-        return $this->belongsTo(kapcsolat::class);
+        return $this->belongsTo(Kapcsolat::class);
     }
 }

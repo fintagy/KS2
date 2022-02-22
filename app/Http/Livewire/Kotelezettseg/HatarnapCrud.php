@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Kotelezettseg;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Models\hatarnap;
+use App\Models\Hatarnap;
 
 class HatarnapCrud extends Component
 {
@@ -23,9 +22,9 @@ class HatarnapCrud extends Component
     {
         return view('livewire.hatarnap.hatarnap_crud', [
             
-            'hatarnapok0' => hatarnap::where('id', '>', '0')
+            'hatarnapok0' => Hatarnap::where('hatn_aktiv', '1')
                             ->orderBy("hatn_nap","ASC")
-                            ->paginate(10),
+                            ->paginate(6),
         ]);
     }
 
@@ -47,7 +46,7 @@ class HatarnapCrud extends Component
 
     private function resetCreateForm(){
         $this->resetErrorBag(); //korábbi hibaüzenetek ürítése
-        $this->hatarnap_id = null;        
+        $this->hatarnap_id = null;
         $this->hatn_nap = Carbon::now()->endOfDay()->format('Y-m-d\TH:i');
         $this->hatn_aktiv = true;
         $this->hatn_letrehozas = Carbon::now();
@@ -55,15 +54,15 @@ class HatarnapCrud extends Component
     }
 
     public function store()
-    {         
-        $this->resetErrorBag();               
+    {
+        $this->resetErrorBag();
         Hatarnap::updateOrCreate(['id' => $this->hatarnap_id], [
             
             'hatn_nap' => $this->hatn_nap,
-            'hatn_aktiv' => $this->hatn_aktiv,            
+            'hatn_aktiv' => $this->hatn_aktiv,
             'hatn_letrehozas' => $this->hatn_letrehozas,
-            'hatn_mod' => $this->hatn_mod            
-        ]);        
+            'hatn_mod' => $this->hatn_mod
+        ]);
         
         session()->flash('message', $this->hatarnap_id ? $this->hatn_nap.' adatai frissítve.' : 'Új határnap rögzítve.');
         
@@ -75,7 +74,7 @@ class HatarnapCrud extends Component
     {
         $this->resetErrorBag();
         $hatarnap = Hatarnap::findOrFail($id);
-        $this->hatarnap_id = $id;        
+        $this->hatarnap_id = $id;
         $this->hatn_nap = date('Y-m-d\TH:i', strtotime($hatarnap->hatn_nap));
         $this->hatn_aktiv = $hatarnap->hatn_aktiv == 0 ? false : true;
         $this->hatn_letrehozas = $hatarnap->hatn_letrehozas;
@@ -86,8 +85,8 @@ class HatarnapCrud extends Component
 
     public function delete($id)
     {
-        $this->akt_hatarnap = hatarnap::find($id);
-        hatarnap::find($id)->delete();
+        $this->akt_hatarnap = Hatarnap::find($id);
+        Hatarnap::find($id)->delete();
         return redirect()->route('hatarnapok')->with('message','A(z) '.$this->akt_hatarnap->hatn_nap.' törölve.');
     }
 }

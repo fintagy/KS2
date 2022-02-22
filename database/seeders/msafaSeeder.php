@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\msafa;
+use App\Models\Msafa;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -40,6 +40,6 @@ class msafaSeeder extends Seeder
                 'msafa_mod' => Carbon::now(),
                 ]
             ];
-        msafa::insert($msafak);
+        Msafa::insert($msafak);
     }
 }

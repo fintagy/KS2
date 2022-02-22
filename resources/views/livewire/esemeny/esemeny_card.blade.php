@@ -1,6 +1,6 @@
 <div class="container">
     <br/>
-    @php $tomb = array("2021.09.30.","cica","ló", "sügér", "csuka", "hangya", "egér");   
+    @php $tomb = array("2021.09.30.","cica","ló", "sügér", "csuka", "hangya", "egér");
     @endphp
     @foreach(array_chunk($tomb, 3) as $chunk)
         <div class="row">

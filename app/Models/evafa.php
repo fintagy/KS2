@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class evafa extends Model
+class Evafa extends Model
 {
     use HasFactory;
     protected $table = 'evafa';
@@ -19,6 +19,6 @@ class evafa extends Model
     ];
 
     public function egyenivallalkozok() {
-        return $this->hasMany(egyenivallalkozo::class); 
+        return $this->hasMany(Egyenivallalkozo::class); 
     }
 }

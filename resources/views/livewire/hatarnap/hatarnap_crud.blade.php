@@ -26,15 +26,15 @@
                                 @include('sablon.editButton', ['param' => "$hatarnap->id"])
                                 @include('sablon.deleteForm', ['param' => "route('hatarnapok.delete', ['hatarnap' => $hatarnap->id])"])
                             </div>
-                        </td>                        
+                        </td>
                     </tr>
                     @endforeach
-                </tbody>                
+                </tbody>
             </table>
             <div style="z-index: -1;">{{ $hatarnapok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
                 @include('livewire.hatarnap.hatarnap_create')
             @endif
-        </div>        
+        </div>
     </div>
 </div>

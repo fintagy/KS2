@@ -12,7 +12,7 @@
                         <th class="px-2 py-2 w-8">Id</th>
                         <th class="px-2 py-2 w-16">ugyfel_id</th>
                         <th class="px-2 py-2">kothat_id</th>
-                        <th class="px-2 py-2 w-48">Létrehozás</th>                        
+                        <th class="px-2 py-2 w-48">Létrehozás</th>
                         <th class="px-2 py-2 w-48">Módosítás</th>
                         <th class="px-2 py-2 w-32">Parancsok</th>
                     </tr>
@@ -24,21 +24,21 @@
                         <td class="border px-2 py-2">{{ $esemeny->ugyfel_id }}</td>
                         <td class="border px-2 py-2">{{ $esemeny->kothat_id }}</td>
                         <td class="border px-2 py-2">{{ $esemeny->esem_letrehozas }}</td>
-                        <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>                        
+                        <td class="border px-2 py-2">{{ $esemeny->esem_mod}}</td>
                         <td class="border px-2 py-2">
                             <div class="col float-end">
                                 @include('sablon.editButton', ['param' => "$esemeny->id"])
                                 @include('sablon.deleteForm', ['param' => "route('esemenyek.delete',['esemeny' => $esemeny->id])"])
                             </div>
-                        </td>                        
+                        </td>
                     </tr>
                     @endforeach
-                </tbody>                
+                </tbody>
             </table>
             <div style="z-index: -1;">{{ $esemenyek0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
                 @include('livewire.esemeny.esemeny_create')
             @endif
-        </div>        
+        </div>
     </div>
 </div>

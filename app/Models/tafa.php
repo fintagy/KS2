@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tafa extends Model
+class Tafa extends Model
 {
     use HasFactory;
     protected $table = 'tafa';
@@ -19,6 +19,6 @@ class tafa extends Model
     ];
 
     public function tarsasagok() {
-        return $this->hasMany(tarsasag::class); 
+        return $this->hasMany(Tarsasag::class); 
     }
 }

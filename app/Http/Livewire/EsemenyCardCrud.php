@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Carbon\Carbon;
-use App\Models\esemeny;
+use App\Models\Esemeny;
 
 class EsemenyCardCrud extends Component
 {
@@ -34,7 +34,8 @@ class EsemenyCardCrud extends Component
         $this->isModalOpen = false;
     }
 
-    private function resetCreateForm(){
-           
+    private function resetCreateForm()
+    {
+
     }
 }

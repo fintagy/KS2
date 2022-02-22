@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Kotelezettseg\HatarnapCrud;
+use App\Http\Livewire\UcsoportCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,6 @@ use App\Http\Livewire\Kotelezettseg\HatarnapCrud;
 |
 */
 
-Route::get('/hatarnapok', HatarnapCrud::class) -> name('hatarnapok');
-Route::delete('/hatarnapok/{hatarnap}', [HatarnapCrud::class, 'delete']) -> name('hatarnapok.delete');
+Route::get('/ucsoportok', UcsoportCrud::class) -> name('ucsoportok');
+Route::get('/ucsoportok/{ucsoport}/edit', [UcsoportCrud::class, 'edit']) -> name('ucsoportok.edit');
+Route::delete('/ucsoportok/{ucsoport}', [UcsoportCrud::class, 'delete']) -> name('ucsoportok.delete');
