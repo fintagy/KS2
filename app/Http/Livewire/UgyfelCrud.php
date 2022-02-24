@@ -39,7 +39,7 @@ class UgyfelCrud extends Component
 
     public function render()
     {   
-        return view('livewire.ugyfel.ugyfel_crud', [ 
+        return view('livewire.Ugyfel.Ugyfel_crud', [ 
 
             'ugyfelek0' => Ugyfel::paginate(6),
             'ucsoportok0' => Ucsoport::all(),

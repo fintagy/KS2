@@ -15,7 +15,7 @@ class KottipCrud extends Component
 
     public function render()
     {
-        return view('livewire.kotelezettseg.kottip_crud', [
+        return view('livewire.Kotelezettseg.Kottip_crud', [
             'kottipusok0' => Kottip::paginate(6),
         ]);
     }

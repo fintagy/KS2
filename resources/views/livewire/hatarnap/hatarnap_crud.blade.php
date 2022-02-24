@@ -33,7 +33,7 @@
             </table>
             <div style="z-index: -1;">{{ $hatarnapok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.hatarnap.hatarnap_create')
+                @include('livewire.Hatarnap.Hatarnap_create')
             @endif
         </div>
     </div>

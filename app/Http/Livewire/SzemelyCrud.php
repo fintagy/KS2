@@ -26,11 +26,11 @@ class SzemelyCrud extends Component
     public function render()
     {
         if(isset($this->ugyfelid)){
-            return view('livewire.szemely.szemely_crud', [
+            return view('livewire.Szemely.Szemely_crud', [
                 'szemelyek0' => Szemely::where('ugyfel_id',  $this->ugyfelid)->paginate(6),
             ]);
         }else{
-            return view('livewire.szemely.szemely_crud', [
+            return view('livewire.Szemely.Szemely_crud', [
                 'szemelyek0' => Szemely::paginate(6),
             ]);
         }

@@ -20,7 +20,7 @@ class FelhasznaloCrud extends Component
 
     public function render()
     {
-        return view('livewire.felhasznalo.felhasznalo_crud', [
+        return view('livewire.Felhasznalo.Felhasznalo_crud', [
             'felhasznalok0' => User::paginate(6),
             'jogosultsagok0' => Jogosultsag::all(),
         ]);

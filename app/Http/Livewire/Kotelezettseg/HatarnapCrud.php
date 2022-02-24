@@ -20,7 +20,7 @@ class HatarnapCrud extends Component
 
     public function render()
     {
-        return view('livewire.hatarnap.hatarnap_crud', [
+        return view('livewire.Hatarnap.Hatarnap_crud', [
             
             'hatarnapok0' => Hatarnap::where('hatn_aktiv', '1')
                             ->orderBy("hatn_nap","ASC")

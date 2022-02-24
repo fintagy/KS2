@@ -33,7 +33,7 @@
             </table>
             <div style="z-index: -1;">{{ $kothatok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.kotelezettseg.kothat_create')
+                @include('livewire.Kotelezettseg.Kothat_create')
             @endif
         </div>
     </div>

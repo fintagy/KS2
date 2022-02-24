@@ -35,7 +35,7 @@
             </table>
             <div style="z-index: -1;">{{ $ucsoportok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.ugyfel.ucsoport_create')
+                @include('livewire.Ugyfel.Ucsoport_create')
             @endif
         </div>
     </div>

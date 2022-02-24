@@ -15,37 +15,37 @@
                     <x-jet-nav-link href="{{ route('esemenycard') }}" :active="request()->routeIs('esemenycard')">
                         {{ __('messages.Card events') }}
                     </x-jet-nav-link>
-                </div>                
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('esemenyek') }}" :active="request()->routeIs('esemenyek')">
                         {{ __('messages.Events') }}
                     </x-jet-nav-link>
-                </div>                
+                </div>
                 <!-- div class="hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
                     <x-jet-dropdown width="48">
-                        <x-slot name="trigger">                            
+                        <x-slot name="trigger">
                             <button type="button" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
                                 Törzsadatok
                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
-                            </button>                            
+                            </button>
                         </x-slot>
-                        <x-slot name="content">                             
+                        <x-slot name="content">
                             <x-jet-dropdown-link href="{{ route ('ugyfelek') }}">
                                 Ügyfél
-                            </x-jet-dropdown-link>                              
+                            </x-jet-dropdown-link>
                             <x-jet-dropdown-link href="{{ route ('szemelyek') }}">
                                 Személy
-                            </x-jet-dropdown-link>                                                    
+                            </x-jet-dropdown-link>
                             <x-jet-dropdown-link href="{{ route ('hatarnapok') }}">
                                 Bevallás
                             </x-jet-dropdown-link>
                             <x-jet-dropdown-link href="{{ route ('hatarnapok') }}">
                                 Határidő
-                            </x-jet-dropdown-link>                            
+                            </x-jet-dropdown-link>
                         </x-slot>
-                    </x-jet-dropdown>                    
+                    </x-jet-dropdown>
                 </div -->
                 <div class="dropdown hidden ml-3 relative sm:flex sm:items-center sm:ml-6 text-gray-500 text-sm leading-4 font-medium">
                     <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 focus:outline-none transition dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,10 +54,16 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item py-2" href="{{ route ('ugyfelek') }}">Ügyfél &raquo;</a>
                             <ul class="dropdown-menu dropdown-submenu py-2">
-                                <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a></li>
-                                <li><a class="dropdown-item py-2" href="{{ route ('cimek') }}">Cím</a></li>
+                                <li><a class="dropdown-item py-2" >Kapcsolat &raquo;</a>
+                                <ul class="dropdown-menu dropdown-submenu py-2">
+                                    <li><a class="dropdown-item py-2" href="{{ route ('szemelyek') }}">Személy</a></li>
+                                    <li><a class="dropdown-item py-2" href="{{ route ('cimek') }}">Cím</a></li>
+                                    <li><a class="dropdown-item py-2" href="{{ route ('telefonok') }}">Telefon</a></li>
+                                    <li><a class="dropdown-item py-2" href="{{ route ('imelek') }}">Ímél</a></li>
+                                </ul>
+                                </li>
                                 <li><div class="border-t border-gray-100"></div></li>
-                                <li><a class="dropdown-item py-2" href="{{ route ('ucsoportok') }}">Típus</a></li>
+                                    <li><a class="dropdown-item py-2" href="{{ route ('ucsoportok') }}">Típus</a></li>
                             </ul>
                         </li>
                         <li><a class="dropdown-item py-2" href="{{ route ('kotelezettsegek') }}">Bevallás &raquo;</a>

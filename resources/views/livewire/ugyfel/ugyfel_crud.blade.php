@@ -56,7 +56,7 @@
             </table>
             <div style="z-index: -1;">{{ $ugyfelek0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.ugyfel.ugyfel_create')
+                @include('livewire.Ugyfel.Ugyfel_create')
             @endif 
         </div>
     </div>

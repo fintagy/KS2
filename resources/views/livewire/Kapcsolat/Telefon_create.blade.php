@@ -1,0 +1,28 @@
+<div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        @include('sablon.grayPanel')
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+            <form class="bg-white sm:p-6 sm:pb-4">
+                <div class="row">
+                    <div class="col mb-4">
+                        @include('sablon.selectInput', ['param1' => "ft_kapcsolat_id", 'param2' => "Kapcsolatok", 'param3' => $kapcsolatok0, 'param4' => $kapcsolat, 'param5' => "id", 'param6' => "ugyfel_id"])
+                        @include('sablon.errorSend', ['param' => "ft_kapcsolat_id"])
+                    </div>
+                    <div class="col mb-4">
+                        @include('sablon.textInput', ['param1' => "tel_szam", 'param2' => "Szám", 'param3' => "...pl. 30/256-5698"])
+                        @include('sablon.errorSend', ['param' => 'tel_szam'])
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-4">
+                        @include('sablon.checkBox', ['param1' => "tel_aktiv", 'param2' => "Aktív"])
+                    </div> 
+                </div>
+                <div class="pb-4">
+                    @include('sablon.backSaveButton')
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

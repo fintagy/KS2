@@ -24,7 +24,7 @@ class KothatCrud extends Component
 
     public function render()
     {
-        return view('livewire.kotelezettseg.kothat_crud', [
+        return view('livewire.Kotelezettseg.Kothat_crud', [
             'kothatok0' => Kothat::paginate(6),
             'kotelezettsegek0' => Kotelezettseg::all(),
 

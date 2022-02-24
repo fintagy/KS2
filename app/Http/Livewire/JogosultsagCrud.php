@@ -8,6 +8,6 @@ class JogosultsagCrud extends Component
 {
     public function render()
     {
-        return view('livewire.jogosultsag.jogosultsag_crud');
+        return view('livewire.Jogosultsag.Jogosultsag_crud');
     }
 }

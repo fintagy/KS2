@@ -37,7 +37,7 @@
             </table>
             <div style="z-index: -1;">{{ $esemenyek0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.esemeny.esemeny_create')
+                @include('livewire.Esemeny.Esemeny_create')
             @endif
         </div>
     </div>

@@ -35,7 +35,7 @@
             </table>
             <div style="z-index: -1;">{{ $szemelyek0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.szemely.szemely_create')
+                @include('livewire.Szemely.Szemely_create')
             @endif
         </div>
     </div>

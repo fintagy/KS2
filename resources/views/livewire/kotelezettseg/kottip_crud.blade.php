@@ -31,7 +31,7 @@
             </table>
             <div style="z-index: -1;">{{ $kottipusok0->links()}}</div>
             @if(isset($isModalOpen) && $isModalOpen)
-                @include('livewire.kotelezettseg.kottip_create')
+                @include('livewire.Kotelezettseg.Kottip_create')
             @endif
         </div>
     </div>

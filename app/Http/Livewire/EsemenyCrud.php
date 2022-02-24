@@ -23,7 +23,7 @@ class EsemenyCrud extends Component
 
     public function render()
     {
-        return view('livewire.esemeny.esemeny_crud', [
+        return view('livewire.Esemeny.Esemeny_crud', [
             'esemenyek0' => Esemeny::paginate(6),
             'ugyfelek0' => Ugyfel::All(),
             'kothatok0' => Kothat::All(),

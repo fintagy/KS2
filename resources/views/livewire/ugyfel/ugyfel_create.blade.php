@@ -34,15 +34,15 @@
                 </div>
                 @switch($this->fu_ucsoport_id)
                 @case(1)
-                    @include('livewire.ugyfel.magan_create')
+                    @include('livewire.Ugyfel.Magan_create')
                     @break
 
                 @case(2)
-                    @include('livewire.ugyfel.egyeni_create')
+                    @include('livewire.Ugyfel.Egyeni_create')
                     @break
 
                 @case(3)
-                    @include('livewire.ugyfel.tarsasag_create')
+                    @include('livewire.Ugyfel.Tarsasag_create')
                     @break
                 
                 @endswitch

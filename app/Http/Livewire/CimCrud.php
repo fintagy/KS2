@@ -23,7 +23,7 @@ class CimCrud extends Component
 
     public function render()
     {
-        return view('livewire.cim.cim_crud', [
+        return view('livewire.Kapcsolat.Cim_crud', [
             'cimek0' => Cim::paginate(6),
             'kapcsolatok0' => Kapcsolat::all(),
             'szemelyek0' => Szemely::all(),

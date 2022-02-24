@@ -15,7 +15,7 @@ class EsemenyCardCrud extends Component
 
     public function render()
     {
-        return view('livewire.esemeny.esemeny_card');
+        return view('livewire.Esemeny.Esemeny_card');
     }
 
     public function create()

@@ -19,14 +19,16 @@ Route::middleware(['auth'])->group(function () {
     require __DIR__.'/esemeny.php';
     require __DIR__.'/esemenycard.php';
     require __DIR__.'/ugyfel.php';
-    require __DIR__.'/szemely.php';
+    require __DIR__.'/Kapcsolat/szemely.php';
     require __DIR__.'/kotelezettseg.php';
     require __DIR__.'/hatarnap.php';
     require __DIR__.'/felhasznalo.php';
-    require __DIR__.'/cim.php';
+    require __DIR__.'/Kapcsolat/cim.php';
     require __DIR__.'/ucsoport.php';
     require __DIR__.'/kottip.php';
     require __DIR__.'/kothat.php';
+    require __DIR__.'/Kapcsolat/telefon.php';
+    require __DIR__.'/Kapcsolat/imel.php';
 
     Route::get('/', EsemenyCardCrud::class);   
 });

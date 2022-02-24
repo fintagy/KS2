@@ -19,7 +19,7 @@ class KotelezettsegCrud extends Component
 
     public function render()
     {
-        return view('livewire.kotelezettseg.kotelezettseg_crud', [
+        return view('livewire.Kotelezettseg.Kotelezettseg_crud', [
             'kotelezettsegek0' => Kotelezettseg::paginate(6),
             'kottipek0' => Kottip::paginate(6),
         ]);
